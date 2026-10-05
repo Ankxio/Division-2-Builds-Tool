@@ -1,0 +1,896 @@
+,Variant,Name,,"Talent (or unique attribute, if no name is given)",Exotic Mods,Minor ,Released,Drop Location,Flavour Text / Notes,,,,
+Assault Rifle,G36 Enhanced,Caretaker,,"Perfect Killer
+Killing an enemy with a critical hit grants 90% critical hit damage for 10 seconds.",,,,Special Event Reward,"""We care for our flock here.""",,,,
+,ACR-E,The Archivist,,"Perfect Ranger
+Amplifies weapon damage by 2% for every 3 meters you are away from the target.",,,,Library of Congress classified mission completion reward,"""A lot of folks love a book, but I get more from a magazine"" — Sergeant Sawyer",,,,
+,AK-M,First Sight,---,"+30% HSD, +50% reload speed debuff",,,,Special Event Reward,"""Always go for the head, not the heels""",,,,
+,Black Market AK-M,Manic,,"Perfectly Overflowing
+Every 2 reloads from empty increases your base magazine capacity by 100%.",,,,DZ,"""Just one more time, Dragov. Call me a manic pixie dream girl just one... more... time..."" 
+- Vivian Conley",,,,
+,Carbine 7,The Drill,,"Perfect Precision Strike
+Killing enemies farther than 20m builds up stacks. Max stack is 2.
+Hitting an enemy within 20m will use all stacks to provide +35% Amplified Damage to enemies within 20m for 5s.",,,,LZ,"""That's the job. Sometimes it's clean, sometimes it's messy, ugly, even. But we do what has to be done. And pave the way to safety.""
+- Agent Brenda Wells",,,,
+,AUG,Invisible Hand,,"Perfect Allegro
++15% Rate of fire.",,,,LZ,"""Do I look like a charity to you? Market forces at work - you want what I've got, so let's make a deal."" - Cassie Mendoza, the best girl",,,,
+,F2000,Shield Splinterer,,"Perfect Optimist
+Weapon damage is increased by 4.5% for every 10% ammo missing from the magazine.",,,,"Ivory Cache
+then Cassie Mendoza","Inscription reads: ""The direct approach is best""",,,,
+,FAL,Goalie,,"Perfect Pressure Point
+Amplifies weapon damage by 20% to enemies under status effects.",,,,LZ,"""Two to the body, one to the head""",,,,
+,FAMAS,Huntsman,,"Perfect Frenzy:
+For every 8 bullets in the magazine capacity, gain 3% rate of fire and 3% weapon damage for 9 seconds when reloading from empty.",,,,"Ash Cache
+then Cassie Mendoza",The Hunter becomes the hunted,,,,
+,Military G36 ,Born Great,,"Perfect Stabilize
+1% Weapon Accuracy and +1% Weapon Stability per bullet shot, up to 75%.
+Stopping shooting will start a timer of 6 seconds, after which the bonuses reset",,,,LZ,"The future is now, old gun.",,,,
+,FAMAS,Burn Out,,"Perfect On Empty
+Reloading from empty grants 80% weapon handling for 10 seconds.",,,,LZ,"""You want me to pick up another shift? Well guess what? Fuck this shit. I'm out"" 
+- Krazinski, before ""The Incident""",,,,
+,Honey Badger,Savage Wolverine,,"Perfectly Close & Personal
+Killing a target within 7 meters grants 38% weapon damage for 10 seconds.",,,,"Firewall Field Research
+(crafting blueprint)","""Cornering a vicious animal is certain to anger the beast. My suggestion? Don't do that."" 
+- Zookeeper at the Manning National Zoo",,,,
+,M4,Pyromaniac,,"Perfectly Ignited
+Deal 30% weapon damage to burning enemies. After 3 kills, applies burning to the next enemy you hit.",,,,LZ,Sometimes the world doesn't burn fast enough.,,,,
+,P416,Glory Daze,,"Perfectly Near Sighted
+Receive 100% stability at the cost of 35% optimal range.",,,,LZ,"""Nothing lasts forever"" 
+- The Balancer",,,,
+,SIG 556,Mechanical Animal,,"Future Perfection 
+Weapon kills grant +1 skill tier for 19s. Stacks up to 4 times.
+Weapon kills at skill tier 6 grant overcharge for 15s.
+Overcharge Cooldown: 90s",,,,LZ,"""The perfect soldier. A blending of man and machine, and fully automatic."" 
+
+-Unknown Black tusk executive during a conference call with investors.",,,,
+,PDR,Test Subject ,,"Perfectly In Sync
+Hitting an enemy grants +20% skill damage for 5s.
+Using a skill or damaging an enemy with a skill grants +20% weapon damage for 5s.
+Damage increases are doubled while both buffs are active at the same time.",,,,LZ,-,,,,
+,PDR,First Bloom,,"Blossom Harvest
+Amplifies weapon damage by 3.3% for each 10% combined Armor and Health the enemy has remaining.",,,,Special Event Reward,,,,,
+,SOCOM MK16,Lud,,"Perfect Streamline
+Increase Weapon Damage by 47% when no Skills are on cooldown.",,,,LZ,"""I've got all the skills I need right here.""",,,,
+,TKB-408,Kingbreaker ,,"Perfect Flatline
+Amplifies weapon damage by 20% to pulsed enemies. After 3 kills, applies pulse to the next enemy you hit. ",,,,LZ only,"""The limits of tyrants are prescribed by the endurance of those whom they oppress"" 
+- Frederick Douglas",,,,
+,Police M4,Lexington,---,"+1,782 Base Damage",,,,Special Event Reward,"""Negative, Ramos"" - Faye Lau",,,,
+,CTAR-21,The Railsplitter,,"Perfectly Accurate
+Increases accuracy by 80%.",,,,DZ,"""Took this off one of your dead colleagues. No hard feelings?"" 
+- Cassie Mendoza, the Gunrunner",,,,
+Light Machine Gun,HK GR9,Dare,,"Perfect Flatline
+Amplifies weapon damage by 20% to pulsed enemies. After 3 kills, applies pulse to the next enemy you hit. ",,,,LZ only,"""If you dare to struggle, you darte to win. If you dare not struggle, then damn it, you don't deserve to win"" 
+- Fred Hampton",,,,
+,L86,Tabula Rasa,,"Perfectly Steady Handed
+Hits grant a stack of 1% accuracy and stability. At 75 stacks, consumes them to refill the magazine.",,,,LZ,"""New uniform, a fresh mag, trousers and pair of socks. A clean slate is always inspiring."" 
+- Lieutenant Kelly",,,,
+,M249,Black Friday,,"Perfectly Unhinged
+Receive 22% weapon damage at the cost of 25% stability and 25% accuracy.",,,,DZ,"""Fire sale! One day only, everything must go.""
+ - Saint Alex to his crew",,,,
+,M60,Good Times,,"Perfect Fast Hands
+Critical hits add a stack of 5% reload speed bonus. Max stack is 40.",,,,DZ,"""What you want to do is develop that muscle memory. Unload. Reload. Unload. Reload. After all that training? That's when you have a good time.""",,,,
+,Military M60,The Headline-grabber,,"Perfectly Strained
+Gain 10% critical hit damage for every 0.5 seconds you are firing. Stacks up to 8 times.",,,,Capitol Globe classified mission completion reward,"When you miss something more than you ever thought possible, it is tempting to seek solace among destructive friends and old, bad habits.",,,,Currently unavailable
+,M249,The Stinger,,"Swift
+Performing a cover to cover grants +20% weapon damage for 20s.",,,,Friend Referral,"When you miss something more than you ever thought possible, it is tempting to seek solace among destructive friends and old, bad habits.",,,,
+,MK46,Gear Shift,,"Perfectly Measured
+The top half of the magazine has +25% rate of fire and -30% weapon damage. The bottom half of the magazine has -18% rate of fire and +38% weapon damage.",,,,LZ,"""Sometimes you gotta kick it into high gear!""",,,,
+,MG5,Sleipner,,"Perfect Frenzy
+For every 8 bullets in the magazine capacity, gain 3% rate of fire and 3% weapon damage for 9 seconds when reloading from empty.",,,,"Gunner Field Research
+(crafting blueprint)","Inscription reads:
+
+The best among gods and men, who bears its rider to the land of the dead.",,,,
+,MG5,Big Show,,"Perfect Thunder Strike
+Deals 35% extra damage to shocked targets.",,,,LZ only,"""If budget is no option, and you want to give them the 'shocker' take 'emto the Big Show."" BTSU Jack Bonney",,,,
+,Infantry MG5,Bellringer,---,"As you fire, the gun will play Christmas music.",,,,Special Event Reward,,,,,
+,NEGEV,Carnage,,"Perfect Sadist
+Deal +35% weapon damage to bleeding enemies. After 3 kills, applies bleed to the next enemy you hit.",,,,LZ,"""Time to paint this town red.""",,,,
+,RPK-74,New Reliable,,"Perfectly Optimized
+Increase weapon handling by 40%.",,,,LZ,"""Whoever said 'if it ain't broke, don't fix it' clearly never had any hobbies""",,,,
+,GR9,Cricket,,"Perfect Precision Strike
+Killing enemies farther than 20m builds up stacks. Max stack is 2.
+Hitting an enemy within 20m will use all stacks to provide +35% Amplified Damage to enemies within 20m for 5s.",,,,LZ,"""How are you not out of ammo?""
+- Unknown Hyena's last words",,,,
+,Classic RPK,Rusty,,"Perfect Pressure Point
+Amplifies weapon damage by 20% to enemies under status effects.",,,,LZ,"""Hold fire, hold fire!! He's already dead""",,,,
+,Stoner LAMG,Quiet Roar,,"Perfect Overwhelm
+Suppressing an enemy (that is not currently suppressed) grants 12% weapon damage for 12 seconds. Max stack is 4.",,,,LZ,"""Making a big show of things is for amateurs. A real badass doesn't need theatrics. A real bad mother fucker freezes your blood just by entering the room.
+The lion doesn't have to roar to make all the other animals go into hiding.""
+- Raoul ""The Lion"" Fernando",,,,
+Submachine Guns,CMMG Banshee,The Grudge,,"Perfectly Vindictive
+Killing an enemy with a status effect applied grants all group members within 20 meters 21% critical hit chance and 21% critical hit damage for 20 seconds.",,,,"LZ
+
+Warlords Campaign
+Aaron Keener (story)","""It is all about power now. Power, and survival. They are done but I am not. And you won't be either. Not if you work with me."" 
+- Aaron ""Vanguard"" Keener",,,,
+,Enhanced AUG A3P,Interchange,,"Perfect Back and Forth
+Swapping to this weapon grants +13% Rate of Fire and +12% Weapon Damage for 10s. Swapping from this weapon grants +5% Rate of Fire and +4.5% Weapon Damage for 10s. Receiving one of the bonuses will remove the previous one if it's still active. Two instances of this Talent will not function at the same time.",,,,LZ,,,,,
+,MP5 ST,Cabaret,,"Perfect Thunder Strike
+Deals 35% extra damage to shocked targets.",,,,LZ only,"""When you're running out of options, it's time to shock and awe."" BTSU Jack Bonney",,,,
+,Tommy Gun,Grown Great,,"Perfect Stabilize
+1% Weapon Accuracy and +1% Weapon Stability per bullet shot, up to 75%.
+Stopping shooting will start a timer of 6 seconds, after which the bonuses reset",,,,LZ,"Great weapons aren't born great, they grow great",,,,
+,MP7,Swap Chain,,"Perfect Unwavering
+Swapping to this weapon grants 400% weapon handling for 5 seconds. Kills refresh the buff. Swapping away disables this from all weapons for 5 seconds.",,,,LZ,"""Just take it out, light them up and make sure to stick the landing no matter what! It's not rocket surgery!""",,,,
+,MPX,Safety Distance,,"Perfect Outsider
+After killing an enemy, gain 150% optimal range and 125% accuracy for 10 seconds.",,,,LZ,"""I don't throw grenades for my health, I throw 'em to watch the bang. Yeah, fuck you. It's cool to watch the explosions."" - Dash",,,,
+,,The Apartment,,"Perfectly Measured
+The top half of the magazine has +25% rate of fire and -30% weapon damage. The bottom half of the magazine has -18% rate of fire and +38% weapon damage.",,,,DZ,We're saving up for our dream house.,,,,
+,FN P90,Emeline's Guard,,"Perfect Preservation
+Killing an enemy repairs 15% armor over 5 seconds. Headshot kills improves the repair to 30%.",,,,LZ,"Inscription reads: 
+
+""For loyal service, Emeline grants rewards. Keep her and the cause forever in your thoughts.""",,,,
+,Converted SMG-9 A2,Purist,,"Perfect Streamline
+Increase Weapon Damage by 47% when no Skills are on cooldown.",,,,LZ,"""Keep your toys to yourself""",,,,
+,Tommy Gun,The Sleigher,,"Hidden Rock
+Headshots apply confuse. Cooldown 20s",,,,Special Event Reward,"Reviews are in, and 'The Sleigher' is the top holiday gift for this year! Find yours at Abel's or any participating retail store. 
+
+""Wicked fun! The Sleigher is a blast to play with."" 
+ - NYC Toy Review
+
+""Who says you can't bring a gun to a snowball fight?"" 
+ - Holiday Gift Guide
+
+""Unlike that holiday classic, never worry about poking your eye out"" 
+ - Practical Winter Gifts",,,,
+,Enhanced PP-19,Cold Relations,,"Perfectly Strained
+Gain 10% critical hit damage for every 0.5 seconds you are firing. Stacks up to 8 times.",,,,LZ,"""You're going to have to have to pull this from my cold, dead hands.""
+""Sounds enjoyable. Don't mind if I do."" - Duchess",,,,
+,Tactical UMP-45,Slingshot,---,+45 Optimal Range (60 total),,,,Special Event Reward,"""Set your sights far, not high."" ",,,,
+,Tactical Vector SBR 9mm,Froth,,"Perfect Immobilize
+Amplifies weapon damage by 25% to ensared enemies. After 3 kills applies Ensnare to the next enemy you hit.",,,,LZ,Sit Tight.,,,,
+,Vector SBR .45 ACP,Dark Winter,,"Perfect Killer
+Killing an enemy with a critical hit grants 90% critical hit damage for 10 seconds.",,,,DZ,"""It was supposed to be an exercise. Turns out... we weren't prepared."" 
+- Faye Lau",,,,
+Shotgun,ACS-12,Rock n' Roll,,"Perfectly Extra
+Increased magazine size by 50%.",,,,DZ,"""Lots of people love the guitar. Me? I love the drums. BAM. BAM. BAM. Really gets my blood flowing"" 
+- Hyena band member",,,,
+,,Lefty ,,"Perfect Sledgehammer
+ Dealing damage with a grenade applies a mark on target. Targets with marks take 40% more damage to armor and -10% movement speed.
+",,,,LZ,"""When you know you're in the  right, Lefty will have your back."" 13",,,,
+,Double Barrel,Boomstick,,"Perfect Pumped Up
+Reloading grants 6% weapon damage for 10 seconds. Stacks up to 5 times.",,,,LZ,"""I've got two barrels. One for both of ya!""
+
+- Drunken Idiot",,,,
+,KSG,The Send-Off,,"Perfect Distance
+Increase optimal range by 100%.",,,,Technician Field Research,"When you leave this world, all your hear is white noise.",,,,
+,Military M870,Cuélebre,,"Perfect Jazz Hands
+Increase reload speed by 50%.",,,,LZ,"Inscription reads: 
+
+Treasure your life. Defend it with this.",,,,
+,M870 Express,Lockdown,,"Perfect Immobilize
+Amplifies weapon damage by 25% to ensared enemies. After 3 kills applies Ensnare to the next enemy you hit.",,,,LZ,And stay there.,,,,
+,SASG-12,Tsunami,,"Perfect Pummel
+2 consecutive kills refill the magazine and grant 40% weapon damage for 10 seconds.",,,,LZ,"The tidal wave stops for nothing, suffocating fire and life, when it rolls in.",,,,
+,Sawed Off,Backup Boomstick,--,"Core Attribute
+17.0% Shotgun Damage",,,,LZ,"""Always, and I mean always... have a backup"" 
+- Drunken Idiot",,,,
+,,Firestarter,,"Primer Rounds
+Damaged enemies lose 50% burn resistance for 5 seconds.",,,,Firewall Specialization,Chambered shots contain a fine powder that increaases the flammability of targets hit by this shotgun,,,,
+,Super 90,Like Glue,,"Perfect Brazen
+Receive +1% Amplified Damage on the next shot with the weapon for each pellet that this hits the target, if at least 4 pellets hit.",,,,LZ,"""No matter what happens, you stick to them like glue.""",,,,
+,,Enforcer,,"Perfect Pummel
+2 consecutive kills refill the magazine and grant 40% weapon damage for 10 seconds.",,,,Pre-Order Only,"""Breach and clear!""",,,,
+,Spas-12,Thorn,,"Perfect Brazen
+Receive +1% Amplified Damage on the next shot with the weapon for each pellet that this hits the target, if at least 4 pellets hit.",,,,LZ,"""You see, the secret to laughing in the face of danger is that you have to get real fucking close to it.""
+- Mayhem",,,,
+,Six12,The Mop,--,"Secondary Attribute
+10% Armor On Kill.",,,,LZ,"""Wet work is a messy business, and some cleanup jobs require a big mop"" 
+- Marco ""The Mop"" Mociano",,,,
+Rifle,1886,The Virginian,,"Perfect Boomerang
+Critical hits have a 75% chance to return the bullet to the magazine. If a bullet is returned to the magazine, the next shot has 50% increased damage.",,,,DZ,"""Get the fuck off my land. That means you. Now."" 
+- DC Area Resident",,,,
+,ACR SS,Trader,,"Perfect Back and Forth
+Swapping to this weapon grants +13% Rate of Fire and +12% Weapon Damage for 10s. Swapping from this weapon grants +5% Rate of Fire and +4.5% Weapon Damage for 10s. Receiving one of the bonuses will remove the previous one if it's still active. Two instances of this Talent will not function at the same time.",,,,LZ,,,,,
+,M1A CQB,Cooler,,"Refreshing
+The Weapon fires a stream of water. Hitting an ally agent builds stacks on them. Max stack is 5. Stacks deplete every 2s. While having at least 1 stack, the ally will have +50% Hazard Protection.",,,,Special Event Reward,Remember to hydrate,,,,
+,M1A,Baker's Dozen,,"Perfect Lucky Shot
+Magazine capacity is increased by 30%. Missed shots from cover have a 100% chance to return to the magazine.",,,,LZ,"""This rifle saw me through the war. May she now see you through yours."" 
+- Sgt. Rolland T. Baker",,,,
+,SOCOM MIA ,Stage Left,,"Perfect Sledgehammer 
+Dealing damage with a grenade applies a mark on target. Targets with marks take 40% more damage to armor and -10% movement speed.",,,,LZ,"""When you want to make an entrance use Stage Left. "" 13",,,,
+,M4,Surge,,"Perfect Spike
+Headshots grant 25% skill damage for 15 seconds.",,,,LZ,"""The Machine is learning. We're not.""
+- A Transhumanist Perspective on Planned Obsolescence",,,,
+,"Mk17
+(Police Mk-17)",Everlasting Gaze,,"Perfect Perpetuation
+Headshots grant 75% status effect damage and duration to the next status effect you apply. Cooldown is 16 seconds.",,,,DZ,"""Keep yer eye on the prize, boyo. Steady... steady... now!"" - NYCP Instructor",,,,
+,Resolute MK47,Harmony,,"Perfectly In Sync:
+Hitting an enemy grants +20% skill damage for 5s.
+Using a skill or damaging an enemy with a skill grants +20% weapon damage for 5s.
+Damage increases are doubled while both buffs are active at the same time.",,,,DZ,"""Let your weapon do the singing, but never forget your backup vocals."" 
+
+- Agent Brink",,,,
+,SIG 716,Artist's Tool,,"Perfect Rifleman
+Landing headshots adds a stack of bonus 11% weapon damage for 5 seconds. Max stack is 6. Additional headshots refresh the duration.",,,,LZ,"""You call it war, we call it art."" 
+- The Hyenas",,,,
+,USC .45 ACP,Achilles,,"Perfect Soft Spot
+Destroying a Weakpoint grants 24% Weapon Damage for 15s.",,,,LZ,"""Out of every place it could have hit."" 
+- Outcast Rusher",,,,
+,M16A2,Whisper,,"Perfectly Behind You 
+Amplifies weapon damage by +20% to enemies that are not targeting you.",,,,LZ,"""Do you hear that?""
+- Unknown",,,,
+Marksman Rifle,M44,The White Death,--,137.0% Headshot Damage,,,,LZ,"""I miss the snow"" 
+- S.H.",,,,
+,M44,Oh Carol,--,"137.0% Headshot Damage & Twinkling Lights
+Only at night with twinkling lights can you fill their heads with festive might.",,,,Special Event Reward,"""Christmas is the perfect time to jingle all the bells. Light up the night and empty Santa's sack with a little help from his favorite sleigher."" The Carolers",,,,
+,Model 700,Ekim's Long Stick,,"Perfect Ranger
+Amplifies weapon damage by 2% for every 3 meters you are away from the target.",,,,LZ,"You wouldn't poke a hornet's nest with a short stick, would you?",,,,
+,"MK20 SSR
+(FN SCAR-SSR)",The Darkness,,"Perfect Eyeless
+Deal 35% weapon damage to blinded enemies. After 3 kills, applies blind to the next enemy you hit.",,,,"LZ
+Warlords Campaign
+Theo Parnell (story)","""Cover conceals truth; deception conveys falsehood. Cover induces inaction; deception induces action.""",,,,
+,SR-1,Designated Hitter,,"Perfect Reformation
+Headshots grant 80% skill repair for 15 seconds.",,,,LZ,"""You want me to be your designated hitter, Ridgeway? Convince me, then. Based on your reputation, signing up with you might be bad for my health."" 
+- Captain Briggs to Ridgeway",,,,
+,SRS,Pinprick,,"Perfect First Blood
+If scoped, your first 2 shots fired from out of combat or after fully reloading from empty deal headshot damage to any part of the body hit. Requires a Scope with 8x magnification or higher.",,,,DZ,"""Strike fast, strike hard. Rinse, repeat"" 
+- Hyena marksman",,,,
+,Paratrooper SVD,Commando,,"Perfectly Naked
+Hitting an enemy with no armor grants 50% headshot damage for 8 seconds.",,,,LZ,"""Look. I know you're brave, but don't go jumping into a fight naked"" 
+- Cassie Mendoza, the Gunrunner",,,,
+,Surplus SVD,Handbasket,--,"+230,326 Base damage, -200 RPM",,,,Special Event Reward,Don't put all your eggs in one basket,,,,
+,G28 Marksmen Rifle ,Relic,,"Perfectly Determined 
+After killing an enemy with a headshot the next shot landed on any enemy will be a guaranteed (critical) headshot. While the talent is active, killing an enemy will not retrigger the talent.",,,,LZ only,"""With the power of this holy instrument, we can accomplish anything."" The Priest",,,,
+,Tactical .308 ,Scalpel,,"Future Perfection: 
+Weapon kills grant +1 skill tier for 19s. Stacks up to 3 times.
+Weapon kills at skill tier 6 grant overcharge for 15s.
+Overcharge Cooldown: 90s",,,,LZ,-,,,,
+,Custom M44,Instigator,,"Perfect Soft Spot: 
+Destroying a Weakpoint grants 24% Weapon Damage for 15s.",,,,LZ,"""Do I really need this much fuel on me?"" 
+- Outcast Thrower",,,,
+,M700 Carbon,Brutus,,"Perfectly Behind You 
+Amplifies weapon damage by +25% to enemies that are not targeting you.",,,,LZ,"""You don't hear the bullet that kills you.""
+- Milla 'Wyvern' Radek",,,,
+Pistol,586 Magnum,Orbit,,"Perfect Finisher
+Swapping from this weapon within 10 seconds of killing an enemy grants 35% critical hit chance and 40% critical hit damage for 15 seconds.",,,,DZ,"An object once set into motion stays in motion, until it finds its target. And then all motion ceases to exist.",,,,
+,Police 686 Magnum,Prophet,,"Perfectly Determined 
+After killing an enemy with a headshot the next shot landed on any enemy will be a guaranteed (critical) headshot. While the talent is active, killing an enemy will not retrigger the talent.",,,,LZ,"""As a prophet of the lord our hand is guided to enact his vengeance."" The Priest",,,,
+,93R,Sharpshooter's 93R,,"Perfect Unwavering
+Swapping to this weapon grants 400% weapon handling for 5 seconds. Kills refresh the buff. Swapping away disables this from all weapons for 5 seconds.",,,,Sharpshooter Specialization,A 3-round burst weapon for hectic close encounters. The ideal companion for when the situation calls for rapid fire and high mobility.,,,,
+,Desert Eagle,Survivalist D50,,"Perfect Sadist
+Deal +25% weapon damage to bleeding enemies. After 3 kills, applies bleed to the next enemy you hit.",,,,Survivalist Specialization,"A hard-hitting but precise pistol, the D50 features .44 Magnum rounds and an optic slot for added customization.",,,,
+,"M45A1
+(M45A1 CQBP)",Mozambique Special,,"Perfect Breadbasket
+Landing body shots adds a stack of bonus 70% headshot damage to the next headshot for 10 seconds. Max stack is 2.",,,,"LZ
+Warlords Campaign
+Javier Kajika (story)","""The last thing you want to do when putting someone down is give them a chance to get back up"" 
+- Javier Kajika",,,,
+,,Quickstep,,"Sport Mode
++20% Movement Speed. This bonus does not stack with other Movement Speed bonuses.",,,,Special Event Reward,Spooky fast.,,,,
+,Maxim 9,Maxim 9,,"Perfect Spike
+Headshots grant 25% skill damage for 15 seconds.",,,,Technician Specialization,Integrally suppressed 9mm pistol for when you don't want to compromise between performance and suppression. A large magazine and added barrel weight from the suppressor minimizes recoil for a very precise weapon.,,,,
+,P320,P320 XCompact,,"Perfect Preservation
+Killing an enemy repairs 12% armor over 5 seconds. Headshot kills improves the repair to 24%.",,,,Gunner Specialization,"9mm service pistol of the US military, its compact ergonomic design masks its impressive stopping power.",,,,
+,PF45,Lightning Rod,,"Perfect Salvage
+Killing a target has a 85% chance to refill the magazine.",,,,LZ,"Inscription reads: 
+
+Strike hard and fast, but also unexpectedly.",,,,
+,KARD-45,"TDI ""Kard"" Custom",--,"Secondary Attribute
++1 Skill Tier when used",,,,"DZ, Caches","""In our line of work, it pays to be slightly ahead of the curve""
+
+- John Dmitri  Kozak",,,,
+,Police 686 Magnum,The Harvest,--,"+10% base damage, -7% RoF",,,,Special Event Reward,"""Nothing like the rewards at the end of the harvest""",,,,
+,Rhino,Diceros Special,,"Perfect Optimist
+Weapon damage is increased by 4% for every 10% ammo missing from the magazine.",,,,Demolitionist Specialization,A hard-hitting .357 Magnum revolver. The unusual low barrel design firing from the bottom of the cylinder makes for a balance rarely seen in this category of weapon.,,,,
+Assault Rifle,Kriss Vector,,,"Adaptive Instincts 
+Hitting 30 headshots grants 20% critical hit chance and 50% critical hit damage for 45 seconds.
+
+Hitting 65 body shots grants 90% weapon damage for 45 seconds.
+
+Hitting 20 leg shots grants 150% reload speed for 45 seconds.
+
+Buffs refresh when out of combat.","Optics: +15% Critical Hit Chance
+Magazine: +20 Rounds
+Muzzle: +20% Accuracy
+Underbarrel: +10% Stability",Any Basic,,"- Bounties
+
+-- Target loot
+-- Exotic Caches","The Chameleon is coated in a light-refracting technology designed by a DARPA research team.
+
+- It's said that the Chameleon is the result of a collaboration between Massive and Kriss USA to imagine the Vector as an assault rifle.
+- This gun is also featured in the Girls' Frontline collaboration.
+- Even though it is labelled as an assault rifle, the Chameleon should be used as an SMG.",,,,
+,,Chameleon,,,,,,,,,,,
+,MK16,Caduceus (PTS),,"Caduceus
+
+Critical Hits repair you and your allies for 1.5% of the hit's dealt damage.","Optics: +10% Critical Hit Chance
+Magazine: +20 Rounds
+Muzzle: +5% Critical Hit Chance
+Underbarrel: +5% Critical Hit Damage",Any Basic,TU 28, ,"""Leave it to the US Military to confuse the Caduceus with the rod of Asclepius."" - Last Man Battalion Officer",,,,
+,,,,,,,,,,,,,
+,P416 G3,,,"Eagle Strike 
+Accuracy increases as you continuously fire, up to 30%.
+
+Headshot kills grant the Tenacity buff for 15 seconds.
+
+The strength of Tenacity is increased by 1% for body shots and 5% for headshots. 
+
+Tenacity
+40-80% of damage taken is delayed until the buff expires.
+
+All of the total delayed damage is reduced for each enemy killed while the buff is active, up to 100% with 3 kills.","Optics: +15% Critical Hit Chance
+Magazine: +30 Rounds
+Muzzle: +20% Critical Hit Damage
+Underbarrel: +10% Weapon Handling",Any Basic,,"- Operation Dark Hours 
+      (Normal ONLY)
+- Low Chance per DH Boss
+- End cache 10%
+- Extremely Low chance from DZ 
+","Inscription reads:
+""For tireless defense and service in the wake of our shared national tragedy, we present this to Odessa Sawyer. May she always rise to meet the challenges in her path.""
+- The People of the Theatre settlement
+
+- Despite the belief of some that the Eagle Bearer is an M4, its firerate and closer inspection of the gun body reveal that it is an exact match for the P416 G3.
+- Since Odessa Sawyer used to serve The Division alongside Agent Kelso, the faction associated with this weapon is the SHD.
+- ""Rise to meet the challenges"" is actually a pun referring to the SHD phoenix logo, which Odessa identifies strongly with.",,,,
+,,Eagle Bearer,,,,,,,,,,,
+,LVOA-C,,,"Actum Est
+Shooting an enemy with this weapon will give 1 stack. 
+
+At 100 stacks the next magazine will be 100% filled with shock ammo.","Optics: +15% Critical Damage
+Magazine: +30 Rounds
+Muzzle: +15% Critical Hit chance
+Underbarrel: +10% Weapon Handling",Any Basic,,"- Year 5 Season 1 track
+
+-- Target loot
+-- Exotic Caches","""Sometimes the most beautiful and dangerous phenomenon is natural.""
+anonymous",,,,
+,,St. Elmo's Engine,,,,,,,,,,,
+,Aug A3-CQC,,,"Big Game Hunter
+When scoped, switches to semi-automatic fire mode, dealing 450% weapon damage with each shot.
+
+Headshots grant +6% headshot damage. Stacks up to 25 times. Once at full stacks, 10 stacks decay every 4 seconds until all stacks have been removed. Headshots delay decaying of stacks.","Optics: +40% Headshot Damage
+Magazine: +20% Reload Speed
+Muzzle: +20% Accuracy
+Underbarrel: +20% Stability",Any Basic,,"- Legendary bosses (5%)
+- Extremely Low chance from DZ ","""Take aim. Take a breath. Steady yourself. Concentrate. Exhale. Squeeze.""
+
+- The Bighorn's flavour text is not attributed to any character.
+- Further research of the Bighorn reveals that the bighorn sheep is a species of sheep that lives in certain mountainous areas of North America.
+- These states and geographical areas are what you see traced into the faction logo of The Bighorn.",,,,
+,,The Bighorn,,,,,,,,,,,
+,FAL,,,"Talent Unnerve
+Killing an enemy will apply a mark on every enemy within 20m of it. Multiple marks can be applied to the same enemy. Max number of marks that can be applied to an enemy is 5. all marks on an enemy will disappear 10s after the last one has been applied. Deal +15% Amplified Damage per mark to marked enemies.","Magazine: +20 Rounds
+Muzzle: +5% Critical Hit Damage
+Optics: +5% Critical Hit Chance
+Underbarrel: +10% Weapon Handling",Any Basic,,"-- Target loot
+-- Exotic Caches","""this is no longer about prevention. It's about damage control.""
+- Colonel Antwon Ridgeway",,,,
+,,Strega,,,,,,,,,,,
+,PDR ,,,"Capacitance
+Shooting enemies builds stacks to a cap of 40. Each stack grants 1.5% Skill Damage. After 5 seconds, stacks decay 1 per second.
+
+For each skill tier gain 7.5% Weapon Damage.","Main attributes:  12% Damage to Armour
+
+Optics: +10% Critical Hit Chance
+Magazine: +11 Rounds
+Muzzle: +30% Critical Hit Damage
+Underbarrel: +10% Weapon Handling",Any Basic (Excluding Damage to Armor),,"- The Summit challenges
+
+After acquiring blueprint
+-- Target loot
+-- Exotic Caches","""My two favourite things are: cut and crossed wires, and electric fires. Luckily those  two tend to go hand in hand. Let's spark it up, then burn it down.""
+- Former Black Tusk technician
+
+- Gee, I wonder why he's no longer a technician with the Black Tusk.",,,,
+,,"Capacitor",,,,,,,,,,,
+,F2000,Agitator,,"Perturb
+While this weapon is holstered, generate 50% less Threat when shooting. Keeping this weapon holstered for 10s will Prime it.
+
+While primed, swapping to this weapon grants +25% Rate of Fire, +30% Weapon Damage and you generate 100% more Threat when Shooting for 20s.
+
+Swapping from this weapon before the timer ends removes the bonuses.","Optics: +10% Critical Hit Chance
+Magazine: +20 Rounds
+Muzzle: +50% Swap Speed",Any Basic,,Y8S1 Season pass,When they least expect it.,,,,
+,,,,,,,,,,,,,
+LMG,IWI-NEGEV,,,"Bullet Hell
+This weapon never needs to be reloaded.
+
+For every 100 bullets that hit an enemy, replenish some ammo to you and all your allies' reserves. ","Magazine: Mag of Holding
+Muzzle: +15% Critical Hit chance
+Underbarrel: +20% Stability",Any Basic,,"- Rikers bosses
+
+-- Target loot
+-- Exotic Caches","""Pour one out for my bro. If he'd used this, he'd never have run out of bullets."" 
+- The Bullet Queen
+
+-For Bullet King, this replenishes 100 bullets since the hidden mag size is 100
+- Despite this flavour text, the Bullet King can in fact run out of bullets. The Bullet King does not have to reload and replenishes some ammo every 100 hits, but this
+does not mean that it has an infinite reserve of ammo. Note that the Bullet King is NOT the best in slot LMG. The best LMG for DPS play is an MG5 or Infantry MG5 
+with Fast Hands, which has a much higher DPS than Bullet King while having only slighly lower DPM.
+- This weapon is a tribute to a Division 1 Rikers boss who had to be removed from the game after he was farmed a little too efficiently.",,,,
+,,Bullet King,,,,,,,,,,,
+,"M249/MK46
+
+CETME Ameli
+MG42 Barrel",Big Alejandro,,"Cover Shooter
+Every bullet fired while in cover increases weapon damage by 1% up to 100%. The bonus lasts for 15 seconds.
+
+Getting a kill with this weapon while in cover resets the duration.
+
+The bonus damage is canceled by reloading, swapping weapons, or exiting combat.",None,Any Basic,,,,,,,
+,,,,,,,,,,,,,
+,Stoner LAMG,,,"
+Disruptor Rounds
+Shooting an enemy marks that enemy and adds a stack to the agent up to a count of 50. Shooting a marked enemy refreshes the mark and adds stacks to the agent. When you deploy a non-shield skill, remove all stacks on agent and all marked targets trigger an effect. 
+
+1 - 10 Stacks - Pulse marked targets for 5 seconds 
+11 - 25 Stacks - Pulse and Disrupt marked targets for 5 seconds. 
+26 - 49 Stacks - Pulse, Disrupt, and Disorient marked targets for 5 seconds. 
+50 Stacks - Pulse, Disrupt, and Disorient marked targets and all hostiles within 10 meters of the marked targets for 5 seconds. This effect will trigger immediately if any marked enemy is killed.  ","Optics: +20% Reload speed
+Magazine: +15% Weapon Handling
+Muzzle: +20% Rate of fire
+Underbarrel: +10% Stability",Any Basic,,"
+- Season 9 Track
+
+-- Target loot
+-- Exotic Caches","     ""Cause of death? ... User Error.""",,,,
+,,Bluescreen ,,,,,,,,,,,
+,MG5,,,"
+Ardent
+Shooting heats up the weapon, filling up heat meter. The meter is equivalent to 50% of the weapon's standard Magazine Size.
+
+When the meter is full, rounds shot by the weapon will ignite enemies.
+
+When not shooting, the meter depletes over time. Reloading or swapping the weapon fully depletes the meter.","Optics: +10% Critical Hit Damage
+Magazine: +35 Rrounds
+Underbarrel: +10% Critical Hit Damage",Any Basic,,"-- Target loot
+-- Exotic Caches","""Arson is a made-up crime. Some people deserve to burn.""
+- The Arsoninst",,,,
+,,Iron Lung,,,,,,,,,,,
+,RPK,Pakhan,,"
+Pakhan
+Each kill with this weapon gains a stack of 75% Base Magazine Size increase to the next magazine, up to 4 stacks.","Optics: +15% Wapon Damage
+Magazine: +20 Rounds
+Muzzle: +15% Critical Hit chance
+Underbarrel: +10% Reload Speed",Any Basic,,"- Year 7 Season 1 track
+
+-- Target loot
+-- Exotic Caches","""Pack another one of those big mags""",,,,
+,,,,,,,,,,,,,
+,M249,,,"Plague of the Outcasts 
+Hits apply a debuff dealing 100% weapon damage over 10s. This stacks up to 50 times.
+
+Whenever an enemy dies with this debuff, the stacks are transferred to a nearby enemy within 25m.","Magazine: +10% Rate of Fire
+Muzzle: +10% Accuracy
+Underbarrel: +10% Stability",Any Basic,,"- DZ Landmark boss
+- DZ Roaming boss 1%
+
+-- Target loot
+-- Exotic Caches","""You will suffer as we suffered"" 
+-  Formerly Quarantined Outcast
+
+- Even though the Plague of the Outcasts acts like a status effect, it is actually a debuff and cannot be spread by the Eclipse Protocol gearset
+(unless the gearset kills an enemy which has the debuff, in which case it spreads on death as per normal).
+- The fact that this debuff doesn't work with Eclipse Protocol makes even less sense considering that both are inspired by viruses.",,,,
+,,Pestilence,,,,,,,,,,,
+SMG,MPX,,,"Payment in kind
+Dealing damage to enemies adds a stack of 2% Critical Hit Damage, up to 100 stacks, lasting 10s.
+
+On reload apply a 10s bleed to yourself, which deals 0.5% armor damage per stack.","Optics: +15% Critical Hit Chance
+Magazine: +20 Rounds
+Muzzle: +15% Critical Hit Damage
+Underbarrel: +10% Stability",Any Basic,,"- Season 3 track
+
+-- Target loot
+-- Exotic Caches","""For only those who have suffered may decree the suffering of others!"" 
+
+-  Outcast Creed
+
+- In the first Division game, the most coveted SMG was The House. It was used on DPS builds. It's entirely possible that the Backfire will become a new meta SMG.
+- Harming oneself in order to do maximum harm to others is nothing new to the Outcasts. All their combat tactics, from suicide bombers to molotov cocktails
+revolve around this. A gun that does massive damage in exchange for causing you to bleed is business as usual.
+- Reloading with Ninjabike Kneepads prevents the gun from causing bleed.",,,,
+,,Backfire,,,,,,,,,,,
+,FN P90,,,"Incessant Chatter
+When you reload, rate of fire is increased by 25% for each enemy within 15m for the duration of that magazine.
+
+Max stacks: 5
+
+Kills refill 50% of your magazine.","Optics: +15% Critical Hit Chance
+Magazine: +10 Rounds
+Muzzle: +15% Critical Hit Damage
+Underbarrel: +10% Weapon Handling",Any Basic,,"- Hyena Cache questline
+
+After acquiring blueprint
+-- Target loot
+-- Exotic Caches","""They say I never know when to shut the hell up, but that's just the spice talking"" 
+- Dime, Hyenas Councilmember
+
+- Full name: The Lost Chatterbox
+- Blueprint flavor text: ""Zip it and let your gun do the talking""
+- Spice is a drug manufactured by the Hyenas. It causes euphoria, aggression and loss of bodily sensation. Dime is addicted to spice.
+- Dime's most iconic voice line is ""Diesel are you dead too you inbred son of a bitch?""",,,,
+,,The Chatterbox,,,,,,,,,,,
+,CMMG Banshee,,,"Breathe Free 
+When moving, gain 4 stacks per second, or 8 stacks if sprinting. Max stack is equal to the weapon's Magazine Size.
+
+Each round fired consumes a stack, amplifying damage by 75%.
+
+Kills grant +20% movement speed for 10s.","Optics: +15% Critical Hit Chance
+Magazine: +10% Reload Speed
+Muzzle: 10% Critical Hit Damage
+Underbarrel: +500% Melee Damage",Any Basic,,"- 22 NY open world bosses (3%)
+
+-- Target loot
+-- Exotic Caches","""Can't take our freedom? That's a lie. Your freedom can always be taken. The only thing standing between you and tyranny is the barrel of your gun"" 
+- 2A Enthusiast
+
+- The Second Amendment, 2A for short, gives United States citizens the right to bear arms. In pure principle, having guns gives citizens the power to overthrow a 
+corrupt government. Lady Liberty is also present on the gun, a symbol of freedom and independence.
+- The faction logo for this gun was originally going to be the United States flag, but it was more appropriate to make the flag that of New York. Specifically, a 
+redesigned New York City flag from r/vexillology",,,,
+,,Lady Death,,,,,,,,,,,
+,Vector,,,"
+Rule them all
+When the agent has a Status Effect applied to them, 50% of the ammo in their next magazine will apply the same Status Effect to their targets.
+
+This effect will only occur during combat.","Optics: +10% Critical Hit Damage
+Magazine: +25% Reload Speed
+Muzzle: +10% Rate of Fire
+Underbarrel: +10% Critical Hit Chance",Any Basic,,"- Incursions Chest 10%.
+- Incursions Boss drop 1%","""What goes around, inevitably comes around.""
+- Aaron ""Vanguard"" Keener",,,,
+,,Ouroboros ,,,,,,,,,,,
+,Tommy Gun,"Underboss
+
+(PTS)",,"Gangland Hit
+
+Shooting an enemy with this weapon applies a mark. You can only apply one mark at a time. Shooting another enemy will transfer the mark.
+
+More marks can be applied on the same enemy by other agents using this weapon. Maximum amount of marks that can be applied on an enemy is 4.
+
+This weapon deals +20% Amplified Damage to marked enemies. The bonus is increased by 5% for each extra mark on the enemy other than your own.",None,Any Basic,TU 28,,,,,,
+,,,,,,,,,,,,,
+,MP7,Oxpecker,,"
+Symbiosis
+While having a Shield deployed, lose Shield Health at a rate of 10% per second.
+Your Shield recieves repairs of 25% of the damage dealt by this weapon.","Optics: +50% Optimal Range
+Muzzle: +10 Rounds
+Underbarrel: +15% Critical Hit Chance",Any Basic,,"- Year 6 Season 3 track
+
+-- Target loot
+-- Exotic Caches","""The healing is less rewarding than the hurting, but i'm content.""",,,,
+,,,,,,,,,,,,,
+Shotgun,SPAS-12,,,"Sandman
+Melee attacks instantly kill non-elite enemies.
+
+Cooldown: 15s.","Optics: +15% Accuracy
+Magazine: +15% Reload Speed
+Underbarrel: 25% Optimal Range",Any Basic,,"Pre-Order
+OR buy Deluxe Pack with
+Premium Credits","""Sleep tight, motherfucker"" 
+- Roach, Hyenas Councilmember
+
+- Even though the alternate version of this gun is dropped by the Outcasts, the instakill device on this gun is said to be ""rigged by the Hyenas"".
+- In addition to this, the flavour text on this gun refers to Roach, the boss of Bank Headquarters.",,,,
+,,Lullaby,,,,,,,,,,,
+,SPAS-12,,,"Sandman
+Melee attacks instantly kill non-elite enemies.
+
+Cooldown: 15s.","Optics: +15% Accuracy
+Muzzle: +15% Reload Speed
+Underbarrel: +25% Optimal Range",Any Basic,,"- Outcast bosses
+
+-- Target loot
+-- Exotic Caches","""Who are you to disagree?"" 
+- Unknown Outcast Engineer
+
+-The name of the weapon and its description are reference to Eurythmics, their song titled ""Sweet Dreams (are made of this). The unknown outcast engineer follows with the next line.
+- Despite being dropped by the Outcasts and having a flavour text relating to the Outcasts, the instakill device on this gun is said to be ""rigged by the Hyenas"".
+- Do not use this gun to do damage, as it has a very low headshot damage modifier.
+- Lore-wise, it makes sense that the Hyenas and Outcasts share a hatred for the True Sons. The True Sons are hated by the Hyenas for being a superior force, and the Outcasts 
+want vengeance on the True Sons for their crimes on Roosevelt Island. There is even an echo where Hyenas and Outcasts are seen raiding a True Sons base in tandem.",,,,
+,,Sweet Dreams,,,,,,,,,,,
+,KSG,,,"Capitulate
+Hitting an enemy applies -4% Movement Speed for each pellet hit for 5 seconds. Shooting the enemy again will reapply the stacks.","Optics Slot: 15% Critical Hit Damage
+
+Magazine Slot: +15% Reload Speed
+
+Underbarrel Slot: +20% Weapon Stability
+
+",Any Basic,,"-- Target loot
+-- Exotic Caches","""If this is what it takes to make them submit, so be it.""
+- Dime",,,,
+,,Overlord,,,,,,,,,,,
+,Super 90,The Sheriff,,Autentico +35 Weapon Damage. +100% accuracy. No Damage Drop Off. These bonus are built into the weapons base stats,None,Any Basic,,,,,,,
+,,,,,,,,,,,,,
+,SIX12,,,"Septic Shock
+Shooting a target applies stacks of venom, which last for 10s. Increasing stacks adds more severe debuffs to the target.
+
+2 - Poison
+4 - Disorient 
+6 - Shock 
+9 - Target takes additional 20% damage (from all sources). Stacks no longer increase.
+
+Duration of Status Effects is based on percentage of pellets hit on applying shot.
+
+Editor's note: The 20% damage taken debuff actually starts applying on stack 8. Stack 9 refreshes the duration.","Optics: +10% critical hit chance 
+Magazine: +10% Reload Speed
+Muzzle: +10% Stability
+Underbarrel: +10% Weapon Handling",Any Basic,,"- Season 4 track
+
+-- Target loot
+-- Exotic Caches",This weapon fires debilitating venomous rounds inspired by the scorpion (specifically Hottentotta). The weapon developed in conjunction with DARPA failed to get approval due to it being in contravention of the Hague Convention of 1899.,,,,
+,,Scorpio ,,,,,,,,,,,
+Rifle,AKM,,,"Binary Trigger
+This weapon fires on trigger pull and release.
+
+If both bullets hit the same enemy, gain a stack.
+
+At 7 stacks, shooting an enemy deals 500% amplified damage and creates a 7m explosion dealing 500% weapon damage, consuming the stacks.","Optics: +15% Accuracy
+Magazine: +10% Reload Speed
+Muzzle: +15% Stability
+Underbarrel: +15% Weapon Handling",Any Basic,,"Pre-Order
+OR buy Deluxe Pack with
+Premium Credits","""Maintaining power requires one to be ruthless. Absolutely ruthless."" 
+- Mayhem, Hyena Councilmember
+
+- The Hyenas are an organisation of street gangs. Nothing more has to be said here.",,,,
+,,Ruthless,,,,,,,,,,,
+,AKM,,,"Binary Trigger
+This weapon fires on trigger pull and release.
+
+If both bullets hit the same enemy, gain a stack.
+
+At 7 stacks, shooting an enemy deals 500% amplified damage and creates a 7m explosion dealing 500% weapon damage, consuming the stacks.","Optics: +15% Accuracy
+Magazine: +10% Reload Speed
+Muzzle: +15% Stability
+Underbarrel: +15% Weapon Handling",Any Basic,,"- Hyena bosses
+
+-- Target loot
+-- Exotic Caches","""Some people say I lack empathy. They're wrong. What I lack is mercy."" 
+- Zodiac, Hyenas Councilmember
+
+- Currently, the low damage of this gun combined with its poor handling make it one of the lest desirable exotics.",,,,
+,,Merciless,,,,,,,,,,,
+,1886,,,"Agonizing Bite
+Diamondback randomly marks an enemy within 20m. If no enemies are within 20m, it marks the enemy closest to you.
+
+Hitting that enemy consumes the mark, guaranteeing a critical hit with damage amplified by 20%. 
+
+After hitting a mark, all shots fired are guaranteed critical hits for 5 seconds. 
+
+A new random enemy is marked afterwards and whenever you reload.","Optics: +10% Accuracy
+Magazine: +10% Reload Speed
+Muzzle: +15% Critical Hit Damage
+Underbarrel: +10% stability",Any Basic,,"- Kenly College end cache
+- (Can be obtained once per
+expedition opening)
+
+-- Target loot
+-- Exotic Caches","""I don't give a damn if it's not an actual Diamondback. I'll call it whatever I want, and I like the name."" 
+- Manning National Zoo Reptile Keeper
+
+- Manning National Zoo is based on the Smithsonian National Zoo, hence the faction logo is an inverted Smithsonian logo.
+- Kenly College is propsed to be an ingame substitute for Howard University",,,,
+,,Diamondback,,,,,,,,,,,
+,M1A CQB,,,"Doctor Home
+Shooting an enemy with this weapon will apply a mark for 5 seconds.
+If a marked target is killed it will give a 10% armor repair kit which applies to the whole party.
+The kit will not give bonus armor.","Optics: +10% Accuracy
+Magazine: +10% Reload Speed
+Muzzle: +10% Stability
+Underbarrel: +10% Weapon Handling",Any Basic,,"- Season 10 Manhunt Reward
+
+-- Target loot
+-- Exotic Caches","""A house isn't a home until you can defend it."" 13",,,,
+,,Doctor Home,,,,,,,,,,,
+,Classic M1A,Bittersweet,,"
+Transfusion
+Hitting headshots builds stacks up to a max of 8. When shooting an Ally or Skill, repair them for 50% of the shot damage for each stack.
+
+Healed Allies receive 200% of your Repair Skills bonus as Bonus Armor for each stack for 10 seconds.
+
+All hits become guaranteed headshots for 8 seconds after healing an Ally or Skill while at maximum stacks.","Optics: +5% Headshot Damage
+Underbarrel: +5% Headshot Damage
+Magazine: +10 Rounds",Any Basic,,Y7 S3 pass,,,,,
+,SIG 716,,,"Geri and Freki
+On trigger pull, fire both barrels at once.
+
+When fired from the right shoulder, hits add offensive primers, and defensive primers when fired drom the left shoulder.
+
+Hits from one shoulder will detonate all of the opposite shoulder's primers when present.
+
+When detonated, each offensive primer deals 100% weapon damage, while each defensive primer grants +4% bonus armor and +10% amplified damage to armor plates for 5s.
+
+Primer effectiveness is doubled at 10 stacks.","Optics: +5% Critical Hit Chance
+Magazine: +10% Reload Speed
+Muzzle: +10% Stability
+Underbarrel: +5% Critical Hit Damage",Any Basic,,"- Operation Iron Horse 
+      (Normal ONLY)
+- Low Chance per boss
+- End cache 10%
+- Extremely Low chance from DZ","Geri and Freki, hounds of Odin, roam the battlefield eternal; greedy for the corpses of those who have fallen. Go forth, warrior of Odin, and hunt; slake their thirst
+
+- Odin is part of Norse (Viking) mythology. They were a loose group of people who occupied Scandanavia in the middle ages.
+- Unfortunately, it turns out that graphic design was not popular in those times, and I had issues finding a common visual motif to represent the Norse People as a whole.
+- As such, I resorted to using the Norwegian Flag.
+- Armor plates indicating plates such as found on warhounds and tanks",,,,
+,,The Ravenous,,,,,,,,,,,
+,Modified Desert Tech MDR,Vindicator ,,"Ortiz Assault Interface
+While scoped, the weapon will highlight a random body section of each enemy.
+The weapon amplifies damage by +60% Weapon Damage to highlighted body sections.","Optics: +15% Accuracy
+Magazine: +5 Rounds
+Muzzle: +10% Optimal Range
+Underbarrel: +15% Stability",Any Basic,,"- NSA store, with currency from the Descent game mode","""If this works half as well in the field as it does in the simulation, this could be a game changer."" 
+- Calvin McManus
+
+-Talking about how the gun was designed for the Descent simulation",,,,
+,,,,,,,,,,,,,
+Marksman Rifle,G28 Marksmen Rifle,,,"The Trap
+Tags enemies when in scope (maximum 10) If Agent kills any marked target with a headshot, all other targets will have 50% (20% PVP) movement speed and receive burn for 10 seconds. 
+
+Cooldown 30 seconds. 
+
+Killing another enemy with a headshot will shorten the cooldown for 10 seconds. 
+
+Targets are marked after 1 seconds in crosshair.","Optics: +20% Headshot damage
+Magazine: +10% Headshot damage
+Muzzle: +20% Optimal Range
+Underbarrel: +20% Stability ",Any Basic,,"- Season 11 track
+
+-- Target loot
+-- Exotic Caches","""By holy light, may this help me execute devine right."" The Priest",,,,
+,,Sacrum Imperium ,,,,,,,,,,,
+,SVD,,,"Full Stop
+Shooting enemies builds stacks to a cap of 20. Headshots grant 2 stacks. Each stack grants 2% Weapon Damage and 5% Headshot Damage. On reload, clear all stacks and gain 5% of your max armor as temp armor for 10 seconds for each stack removed. 
+
+Headshot kills with Dread Edict restore all bullets in the magazine. This does not count as a reload. ","Optics: +40% Headshot Damage
+Magazine: +15% Weapon Handling
+Muzzle: +10% Critical Hit Chance
+Underbarrel: +10% Stability",Any Basic,,"- Season 9 Track 
+
+-- Target loot
+-- Exotic Caches","""You know not the count of the syllables in the utterance of your comdemnation, but you will know when you hear the last one.""",,,,
+,,Dread Edict,,,,,,,,,,,
+,"Custom AWM
+AICS 2.0 chasis
+AX50 stock
+Magpul AFG-12",,,"Electromagnetic Accelerator
+Shots fired deal 0-100% weapon damage based on how long the trigger is held before releasing.","Optics: +45% Headshot Damage
+Magazine: +10% Reload Speed
+Muzzle: +5% Critical Hit Damage
+Underbarrel: +5% Weapon Handling",Any Basic,,"- Invaded strongholds
+questline (blueprint at Grand
+Washington)
+
+After acquiring blueprint
+-- Target loot
+-- Exotic Caches","""I watch the watchmen"" 
+- Phaedra ""Puck"" Lao, Black Tusk sniper
+
+- Full name: Puck's Nemesis
+- Blueprint flavour text: ""I do not seek permission for acts of retribution. I simply perform, and if required, ask forgiveness. I truly honor the spawn of Nyx"" - Puck
+- Through some deduction, we were able to figure out that the Nemesis was most likely an Arctic Warfare, and most likely the AWM variation. Heavily modified, of course.
+- Lao is most certainly an Asian surname. Despite this, Puck shares the same character model and voice lines as the standard Black Tusk sniper, and can be heard swearing
+in Spanish. She also uses the standard SCAR-SSR instead of her Nemesis suggesting that it had yet to be made at the time of her death.
+- Nyx is the greek goddess of the night. Her children or ""spawn"" are Hypnos (Sleep), Thanatos (Death), Nemesis (Retribution), etc.
+- The father of Nyx's children is Nyx's sibling, Erebus (Darkness). The Darkness is a named version of the Mk20 SSR, the sniper that all BTSU snipers use.",,,,
+,,Nemesis,,,,,,,,,,,
+,M700 Carbon,Shroud,,"High Priority Target
+Amplifies Weapon Damage by 125% to the highest ranking enemies currently in combat, as per the Tier hierarchy.
+
+Tier 1: Hunter, Rogue, Leader, Tank, Shield, Heavy Weapons, RPG, Medic, Controller, Warhound, Marauder.
+Tier 2: Support, Engineer, Bodyguard, Immobilizer, Bomber, Mini Tank, Drone Operator.
+Tier 3: Any other enemy or skill proxy.
+
+Editor's note: 2.25x amplifier includes Headhunter bonus, for more details read Headhunter Synergy Guide.","Optics: +25% Headshot Damage
+Magazine: +25% Reload Speed
+Muzzle: +20% Headshot Damage
+Underbarrel: +5% Critical Hit Chance",Any Basic,,"- Y7S2 Season Track
+
+-- Target loot
+-- Exotic Caches
+
+(Reconfigure blueprint is currently bugged as of Y7S3, will not drop if you did not play during Y7S2)","""The bigger they are.""
+
+Note: Tier 3 is lowest, tier 1 is highest.",,,,
+,,,,,,,,,,,,,
+,SRS-A1 ,,,"In Plain Sight
+Your scoped view displays additional information about enemies not targetting you. 
+
+Headshot and weakpoint damage against enemies not targetting you is amplified by 50%.
+
+Headshot kills reset the cooldown of your Decoy Skill. This bonus will wait until the Decoy goes on cooldown if currently active.
+
+Editor's note: 1.5x amplifier excludes Headhunter bonus, for more details read Headhunter Synergy Guide.","Optics: +40% Headshot Damaeg
+Magazine: +10% Reload Speed
+Muzzle: +5% Critical Hit Chance
+Underbarrel: +10% Stability",Any Basic,,"- Season 2 track
+
+-- Target loot
+-- Exotic Caches","""Camouflage is about more than just blending in. You ever heard the term 'aggressive mimicry?' Anyone can hide and wait for the perfect kill, but why wait when you can seduce""
+
+- Sid ""Maneater"" Madison
+
+- Based on the format of the above name, it is highly likely that Sid Madison is a BTSU operative, and ""Maneater"" is their callsign. 
+This would explain why the gun is technologically advanced enough to reset the cooldown of the Decoy.
+-While scoped in, mark on enemies : Orange = not targetted, Red = targeting you",,,,
+,,Mantis,,,,,,,,,,,
+Pistol,"D50
+(Desert Eagle)",,,"Liberty or Death
+
+Hits grant +2% weapon damage. Stacks up to 30 times.
+
+Headshots consume all stacks, repairing your shield for 3% per stack.","Optics: +5% Headshot Damage
+Magazine: +15% Weapon Handling
+Muzzle: +5% Critical Hit Chance
+Underbarrel: +15% Rate of Fire",Any Basic,,"- True Sons missions questline
+(Capitol, American History,
+Viewpoint, Space Admin)
+
+After acquiring blueprint
+-- Target loot
+-- Exotic Caches","""This gave me liberty as it gave others death. Respect it, and it will respect you.""  
+
+General Ridgeway, upon giving his sidearm to a subordinate.
+
+- Full name: Kendra's Liberty
+- Blueprint flavour text :  Hastily scribbled message: ""Hey Kendra. Thanks for the help. I've made some adjustments to the schematic after our talk. I wasn't sure about your
+initial suggestions (considering the source), but they all came together. Thanks again."" - Siri T. C.
+- This gun was first owned by General Ridgeway before he passed it down to someone of a lower rank, Captain Kendra Nelson. She is encoutered as the first boss of
+Capitol Building, and drops the first part of the Liberty.",,,,
+,,Liberty,,,,,,,,,,,
+,Diceros,Whiplash,,"Faster than Reloading
+
+Having this weapon holstered for 5s reloads and primes it. While primed, swapping to this weapon reloads you Primary and Secondary weapons and grants +20% Rate of Fire and +50% Weapon Damage until its magazine is emptied. Reloading or swapping from this weapon before its magazine is emptied will remove its stat bonuses.","Optics: +10% Critical Hit Damage
+Magazine: +10% Critical Hit Chance
+Underbarrel: +50% Swap Speed",Any Basic,,,,,,,
+,,,,,,,,,,,,,
+,PF45,Busy Little Bee,,"Busy Little Bee
+
+Each shot to a different target will give 1 stack, up to 10, each stack will give 20% weapon damage increase. 
+
+Stacks will activate once the agent switches weapon and will last for 10 seconds.
+
+Editor's note: each stack adds to an amplifier, (1 + 0.2 * n) where n is number of stacks, n from 1 to 10.","Optics: +25% Optimal Range
+Magazine: +10% Reload speed
+Muzzle: +10% Stability
+Underbarrel: +5% Critical Hit Chance",Any Basic,,"--Season 10 Track (TU16)
+
+-- Target loot
+-- Exotic Caches","""Practically perfect in every way. As long as you never miss."" 13
+
+
+-Changing weapon again during the said 10 seconds will cancel the buff.",,,,
+,,,,,,,,,,,,,
+,Magnum,,,"Regicide
+Headshot Kills create a 5m explosion, dealing 400% weapon damage and applying bleed to all enemies hit.","Magazine: +10% Reload speed
+Muzzle: +20% Accuracy",Any Basic,,- Iron Horse Raid Project,"""Cast your stones 
+at king on thrones. 
+but at the end
+rats gnaw on our bones.""
+-Javier Kajika
+
+- Full name: Javier Kajika's Regulus
+- Blueprint flavour text : ""Kajika's Regulus revolver is one of a kind, but with the right parts and materials, we can make it two of a kind."" -Inaya
+- The phrase ""cast your stones"" seems to be a reference to John 8:7. In this verse, Jesus says ""let he who is without sin 
+cast the first stone."" This line not only stops a stoning, but exposes the hypocrisy of the stoners.
+- In this flavour text Kajika exposes the hypocrisy of The Division, which seeks to overthrow various hostile factions
+(""kings"") yet themselves have no accountability (due to the President having betrayed them). As such The Division, just
+like other factions, can be said to operate on its own whims and is therefore no different.
+- The last line simply laments how pointless all the fighting and death is in a savage world where one could die at any time.",,,,
+,,Regulus,,,,,,,,,,,
+,M93R,Tempest,,"Restrained:
+The pistol is fully automatic and deals +25% Amplified Damage for 20s after your Shield gets broken.","Magazine: +50% Stability
+Muzzle: +15% Critical Hit Chance",Any Basic,,"- Guaranteed reward for first completion of Y7S2 Climax mission on master difficulty
+- Drop chance from boss of Y7S2 Climax mission on any difficulty (Difficulty affects droprate)
+- Drop chance from Summit Floor 100 completion on any difficulty (Difficulty affects droprate)","""Semi-Auto? I don't have such weaknesses""",,,,
+,,,,,,,,,,,,,
+,M9,Mosquito,,"Mosquito Song
+Hitting an enemy applies a stack. Stacks are shared between players. 
+
+At 5 stacks, the enemy will forcefully target the last player to apply a stack for 5s and take 25% more damage to armor. 
+
+Stacks deplete every 5s. Activating the effect on an enemy will remove all stacks from other enemies.
+
+Editor's note: the ""damage to armor"" taken debuff works similarly to Sledgehammer, in that it is an amplifier that applies to both armor and armor plating.","Magazine: +15% Reload Speed
+Muzzle: +15% Weapon Accuracy",Any Basic,,"-- Target loot
+-- Exotic Caches ","""Time to come out of hibernation, Agent. There's work to do.""
+- Calvin McManus",,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,, ,,,,,,,,,

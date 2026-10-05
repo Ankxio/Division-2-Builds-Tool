@@ -1,0 +1,4 @@
+name,armor,health
+Example: armored enemy,1000000,500000
+Example: heavily armored enemy,3000000,800000
+Example: unarmored enemy,0,400000

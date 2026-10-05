@@ -1,0 +1,10 @@
+key,value,notes
+base_chc,0,Critical hit chance before any gear (%)
+base_chd,25,Critical hit damage before any gear (%)
+chc_cap,60,Maximum critical hit chance (%)
+base_armor,660014,Armor of a level 40 agent with no blue cores. Not confirmed against the game: check and correct it.
+base_health,0,Health of a level 40 agent with no gear bonuses. Not known yet: fill it in to get total health.
+expertise_max,30,Highest expertise grade the grade boxes accept
+expertise_weapon,1,Weapon damage added per weapon expertise grade (%)
+expertise_armor,1,Armor core increase per gear expertise grade (%)
+skill_tier_cap,6,Highest skill tier
