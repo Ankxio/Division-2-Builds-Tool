@@ -1,0 +1,10 @@
+name,level1,per_level,unit,text,source
+Quantum,1,0.4,%,Chance to gain temporary damage immunity.,Y8S1.3 patch notes
+Echo,,,%,Chance for a bullet to deal its damage a second time.,Values not published: type the number from your game
+Atomize,,,%,Increases grenade radius and damage.,Values not published: type the number from your game
+Amalgam,1.6,0.3,%,Chance for bullet hits to apply a random status effect.,Y8S1.3 patch notes
+Trapper,,,%,Extends the duration of status effects you apply.,Values not published: type the number from your game
+Entropy,,,%,Gain health equal to a percentage of your total armor.,Values not published: type the number from your game
+Anomaly,10,2,%,Skills heal you for a portion of the damage they deal.,Y8S1.3 patch notes
+Paradox,,,%,Chance to refill part of the magazine while firing.,Values not published: type the number from your game
+Synesthesia,5,1,%,Hits reduce your skill cooldowns.,Y8S1.3 patch notes

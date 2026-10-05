@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Division 2 Build Planner</title>
+  <meta name="description" content="Plan and share builds for The Division 2 with every weapon, gear piece and talent, kept in sync with the community gear spreadsheet.">
+  <meta name="theme-color" content="#0a0c0f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%230a0c0f'/%3E%3Ccircle cx='20' cy='20' r='13' fill='none' stroke='%23ff6d10' stroke-width='4' stroke-dasharray='62 20' transform='rotate(-60 20 20)'/%3E%3Ccircle cx='20' cy='20' r='4.5' fill='%23ff6d10'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="76 24.5" transform="rotate(-60 20 20)"/>
+        <circle cx="20" cy="20" r="5" fill="currentColor"/>
+      </svg>
+      <div>
+        <h1>Build Planner</h1>
+        <p class="sub">The Division 2</p>
+      </div>
+    </div>
+    <div id="data-chip" class="chip" role="status">Loading game data…</div>
+    <nav class="actions" aria-label="Build actions">
+      <button data-action="share" class="btn primary">Copy link</button>
+      <button data-action="builds" class="btn">Saved builds</button>
+      <button data-action="reset" class="btn ghost">New build</button>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section id="board" class="board" aria-label="Loadout"></section>
+    <aside id="stats" class="stats" aria-label="Build statistics"></aside>
+  </main>
+
+  <footer class="foot">
+    <p>Fan-made tool, not affiliated with Ubisoft. Game data is read from the community
+      <a id="sheet-link" href="#" target="_blank" rel="noopener">Division 2 Gear Spreadsheet</a>
+      by Azurmen, Bend3n, Gingerbeard_x, Maplestruck and Saint Landwalker. Numbers are estimates.</p>
+  </footer>
+
+  <dialog id="editor" class="sheet" aria-label="Edit slot"></dialog>
+  <dialog id="builds" class="sheet small" aria-label="Saved builds"></dialog>
+  <div id="toast" role="status" hidden></div>
+
+  <script type="module" src="js/app.js?v=3"></script>
+</body>
+</html>
