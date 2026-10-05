@@ -1,7 +1,0 @@
-name,effects,text
-Sharpshooter,rifle_damage:15;mmr_damage:15;hsd:15;stability:15,Long range. Signature weapon: TAC-50.
-Demolitionist,smg_damage:15;lmg_damage:15;explosive_damage:25,Explosives. Signature weapon: M32A1 grenade launcher.
-Survivalist,ar_damage:15;shotgun_damage:15;protection_elites:10,Status effects and support. Signature weapon: crossbow.
-Gunner,lmg_damage:15;armor_on_kill_pct:10,Sustained fire. Signature weapon: minigun.
-Technician,skill_tier:1;skill_damage:10,Skills. Signature weapon: P-017 missile launcher.
-Firewall,shotgun_damage:15;smg_damage:15,Close range. Signature weapon: K8-JetStream flamethrower.
