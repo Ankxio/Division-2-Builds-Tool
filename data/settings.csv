@@ -1,0 +1,17 @@
+key,value,notes
+base_chc,0,Critical hit chance before any gear (%)
+base_chd,25,Critical hit damage before any gear (%)
+chc_cap,60,Maximum critical hit chance (%)
+base_health,280350,Health of a level 40 agent with no health bonuses. Read from a player's in-game Stats page.
+base_armor_mask,80295,Armor a mask has before any blue core. Estimated: only the total and the gloves value are confirmed.
+base_armor_backpack,134207,Estimated (see mask)
+base_armor_chest,159506,Estimated (see mask)
+base_armor_gloves,80295,Worked out from a player's in-game armor with mixed expertise grades
+base_armor_holster,110006,Estimated (see mask)
+base_armor_kneepads,95705,Estimated (see mask)
+expertise_max,30,Highest expertise grade the grade boxes accept
+expertise_weapon,1,Weapon damage added per weapon expertise grade (%)
+expertise_armor,1,Increase of a gear piece's base armor per expertise grade (%). The six base values above add up to 660014.
+skill_tier_cap,6,Highest skill tier
+spec_weapon_bonus,15,Weapon damage a specialization gives to each weapon class picked (%)
+spec_weapon_picks,3,How many weapon classes a specialization boosts
