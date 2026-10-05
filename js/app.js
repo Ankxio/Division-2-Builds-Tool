@@ -659,6 +659,18 @@ function pickerView() {
   </div>`;
 }
 
+// Whether a mod fits a weapon: true, false, or null when the fit table does not say.
+function modFits(row, mod) {
+  const rail = (mod.rail || '').toLowerCase();
+  if (mod.slot === 'underbarrel') return row.type === 'pistol' ? /gadget|side slot/.test(rail) : !/gadget/.test(rail);
+  if (mod.slot === 'optic') return row.type === 'pistol' ? /micro/.test(rail) : null;
+  const named = `${row.name} ${row.base}`;
+  const fit = (db.fits || []).find(f => f.type === row.type && f.family.toLowerCase() === String(row.family).toLowerCase());
+  // A calibre in the weapon's own name beats its family ("Vector SBR .45 ACP", "… 9mm").
+  const want = /\.45/.test(named) ? '.45' : /9mm/i.test(named) ? '9mm' : fit?.[mod.slot] || '';
+  return want ? rail.startsWith(want) : null;
+}
+
 function talentBlock(talent, src) {
   if (!talent) return '';
   return `<div class="talent"><h4>${esc(talent.name)}</h4><p>${esc(talent.text)}</p>${src ? sourceControl(src) : ''}</div>`;
@@ -672,7 +684,16 @@ function weaponConfig(i, result) {
   const copied = row.copied?.length ? ` ${cap(row.copied.map(k => words[k]).join(', '))} copied from the standard ${row.base} until the real numbers are known.` : '';
   const src = w.sources.find(s => s.key === `w:${i}`);
   const talents = weaponTalents(db, row).map(t => ({ value: t.name, label: t.name }));
-  const mods = slot => db.weaponMods.filter(m => m.slot === slot).map(m => ({ value: m.name, label: `${m.name} · ${m.text || 'no bonus'}`, group: m.rail || 'Optics' }));
+  // Mods that fit this weapon come first; the rest stay selectable under "Other", because
+  // the fit table (data/weapon_fits.csv) is a best estimate.
+  const mods = slot => {
+    const list = db.weaponMods.filter(m => m.slot === slot).map(m => ({ m, fits: modFits(row, m) }));
+    const known = list.some(x => x.fits !== null);
+    return list.sort((a, b) => (b.fits === true) - (a.fits === true)).map(({ m, fits }) => ({
+      value: m.name, label: `${m.name} · ${m.text || 'no bonus'}`,
+      group: known ? `${fits === true ? 'Fits this weapon' : 'Other mods'} · ${m.rail || 'Optics'}` : m.rail || 'Optics',
+    }));
+  };
   return `<div class="item q-${row.quality}">
       <span class="item-art wide">${weaponArt(row)}</span>
       <div><span class="badge">${QUALITY[row.quality]}</span><h3>${esc(row.name)}</h3>

@@ -1,0 +1,69 @@
+type,family,magazine,muzzle
+ar,ACR,5.56,5.56
+ar,AK-47,7.62,7.62
+ar,AUG,5.56,5.56
+ar,Carbine 7,5.56,5.56
+ar,F2000,5.56,5.56
+ar,FAL,7.62,7.62
+ar,Famas,5.56,5.56
+ar,G36,5.56,5.56
+ar,Honey Badger,7.62,7.62
+ar,M4,5.56,5.56
+ar,MK16,5.56,5.56
+ar,P416,5.56,5.56
+ar,PDR,5.56,5.56
+ar,SIG 556,5.56,5.56
+ar,TKB-408,7.62,7.62
+ar,CTAR-21,5.56,5.56
+lmg,KAC Stoner,ammunition,7.62
+lmg,L86,5.56,5.56
+lmg,HK GR9,ammunition,7.62
+lmg,M249,ammunition,7.62
+lmg,M60,ammunition,7.62
+lmg,MG5,ammunition,7.62
+lmg,NEGEV,ammunition,7.62
+smg,SMG-9,9mm,9mm
+smg,MP5,9mm,9mm
+smg,CMMG,9mm,9mm
+smg,PP-19,9mm,9mm
+smg,AUG,9mm,9mm
+smg,MP7,9mm,9mm
+smg,T821,9mm,9mm
+smg,UMP-45,.45,.45
+smg,Thompson,.45,.45
+smg,MPX,9mm,9mm
+shotgun,KSG,tubular,
+shotgun,M870,tubular,
+shotgun,SPAS-12,tubular,
+shotgun,Super 90,tubular,
+rifle,ACR,5.56,5.56
+rifle,AKM,7.62,7.62
+rifle,AR15,5.56,5.56
+rifle,M16,5.56,5.56
+rifle,M1A,7.62,7.62
+rifle,M4,5.56,5.56
+rifle,Scar,7.62,7.62
+rifle,SIG,7.62,7.62
+rifle,UMP,.45,.45
+rifle,MK47,7.62,7.62
+rifle,1886,tubular,
+mmr,SCAR,marksman,7.62
+mmr,G28,marksman,7.62
+mmr,M700,integrated,7.62
+mmr,SVD,marksman,7.62
+mmr,SRS,marksman,7.62
+mmr,M44,integrated,7.62
+mmr,DSR-1,marksman,7.62
+mmr,Tactical .308,marksman,7.62
+pistol,93R,pistol,9mm
+pistol,M1911,pistol,.45
+pistol,Maxim,pistol,9mm
+pistol,M9,pistol,9mm
+pistol,P320,pistol,9mm
+pistol,PF45,pistol,.45
+pistol,Px4,pistol,9mm
+pistol,X-45,pistol,.45
+pistol,Kriss Kard,pistol,.45
+pistol,Desert Eagle,pistol,
+pistol,Rhino,revolver,
+pistol,Magnum,revolver,

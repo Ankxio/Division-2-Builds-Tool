@@ -26,8 +26,8 @@ async function get(url, ms = 15000) {
 
 // Our own small tables: things the sheet does not hold in a usable form.
 export async function loadCustom() {
-  const [settings, specs, fx, targets, augments, weapons, gear] = await Promise.all(
-    ['settings', 'specializations', 'talent_effects', 'targets', 'augments', 'extra_weapons', 'extra_gear']
+  const [settings, specs, fx, targets, augments, weapons, gear, fits] = await Promise.all(
+    ['settings', 'specializations', 'talent_effects', 'targets', 'augments', 'extra_weapons', 'extra_gear', 'weapon_fits']
       .map(async t => parseTable(await get(`data/${t}.csv`))),
   );
   // Pictures the site owner added themselves: { "eaglebearer": "Eagle Bearer.png", ... }
@@ -41,7 +41,7 @@ export async function loadCustom() {
   }
   return {
     settings: Object.fromEntries(settings.map(r => [r.key, r.value])),
-    specs, targets, augments,
+    specs, targets, augments, fits,
     extras: { weapons, gear },
     fx: new Map(fx.map(r => [norm(r.name), r])),
   };
@@ -86,6 +86,7 @@ export function finish(db, custom, base = null) {
   const by = (list, key = 'name') => new Map(list.map(x => [x[key], x]));
   addExtras(db, custom.extras);
   db.augments = custom.augments;
+  db.fits = custom.fits;
   db.settings = custom.settings;
   db.num = (key, fallback = 0) => { const v = parseFloat(custom.settings[key]); return isNaN(v) ? fallback : v; };
   db.specs = custom.specs;
