@@ -1,7 +1,0 @@
-name,weapon,effects,text
-Sharpshooter,TAC-50 C Rifle,signature_damage:40;pulse_resistance:50;hsd@rifle|mmr:15;stability:15,+15% headshot damage with rifles and marksman rifles and +15% stability.
-Survivalist,Crossbow,signature_damage:40;pulse_resistance:50;protection_elites:10,+10% protection from elites and stronger outgoing healing.
-Technician,P-017 Launcher,signature_damage:40;pulse_resistance:50;skill_tier:1;skill_damage:10,+1 skill tier and +10% skill damage.
-Gunner,Minigun,signature_damage:40;pulse_resistance:50;armor_on_kill_pct:10,Kills grant 10% armor.
-Demolitionist,M32A1 Grenade Launcher,signature_damage:40;pulse_resistance:50;explosive_damage:10,+10% explosive damage.
-Firewall,K8-JetStream Flamethrower,signature_damage:40;pulse_resistance:50;burn_duration:20;health_on_kill:30,+20% burn duration and +30% health on kill.
