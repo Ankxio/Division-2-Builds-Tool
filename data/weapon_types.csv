@@ -1,0 +1,8 @@
+key,label,damage_stat,class_stat,class_value,hsd
+ar,Assault Rifle,ar_damage,dth,21,55
+smg,SMG,smg_damage,chc,21,50
+lmg,LMG,lmg_damage,ooc,12,65
+rifle,Rifle,rifle_damage,chd,17,60
+mmr,Marksman Rifle,mmr_damage,hsd,111,0
+shotgun,Shotgun,shotgun_damage,dta,12,45
+pistol,Pistol,pistol_damage,,0,100

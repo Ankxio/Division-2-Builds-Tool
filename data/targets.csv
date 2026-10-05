@@ -1,0 +1,4 @@
+name,armor,health
+Example target,1000000,500000
+Example armored target,3000000,800000
+Example unarmored target,0,400000

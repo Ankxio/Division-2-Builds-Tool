@@ -1,0 +1,25 @@
+name,types,text,effects
+Optimist,,Weapon damage rises as the magazine empties (up to 30%). Counted here as the 15% average.,weapon_damage:15
+Strained,,Gain critical hit damage while firing. Counted at full stacks.,chd:50
+Ranger,,Amplifies weapon damage by 2% for every 5m to the target. Counted at 20m.,amp:8
+Killer,,A critical hit kill grants bonus critical hit damage for 10s.,chd:70
+Close & Personal,,A kill within 7m grants bonus weapon damage for 10s.,weapon_damage:38
+Sadist,,Amplifies weapon damage to bleeding enemies.,amp:20
+Flatline,,Amplifies weapon damage to pulsed enemies.,amp:15
+Ignited,,Amplifies weapon damage to burning enemies.,amp:20
+Eyeless,,Amplifies weapon damage to blinded enemies.,amp:20
+Rifleman,rifle;mmr,Headshots stack bonus weapon damage. Counted at 5 stacks.,weapon_damage:50
+In Sync,,Hitting an enemy and using a skill each grant weapon and skill damage. Counted with both active.,weapon_damage:30;skill_damage:30
+Unhinged,,More weapon damage at the cost of handling.,weapon_damage:18;weapon_handling:-25
+Fast Hands,,Critical hits stack reload speed. Counted at full stacks.,reload_speed:80
+Lucky Shot,rifle;mmr,Bigger magazine.,mag_size:20
+Perfect Lucky Shot,rifle;mmr,Bigger magazine.,mag_size:30
+Vindictive,,Killing an enemy with a status effect grants crit chance and crit damage.,chc:18;chd:18
+Measured,ar;smg;lmg,The top half of the magazine fires faster and the bottom half hits harder. Not counted in the numbers.,
+Preservation,,Kills repair armor. Not counted in the numbers.,
+Perfect Determined,mmr,Headshot kills guarantee the next headshot. Not counted in the numbers.,
+Actum Est,ar,Exotic talent. Not counted in the numbers.,
+Eagle's Strike,ar,Exotic talent. Not counted in the numbers.,
+Incessant Chatter,smg,Exotic talent. Rate of fire grows as you fire. Counted at full stacks.,rof:60
+Plague of the Outcasts,lmg,Exotic talent. Applies a stacking damage over time. Not counted in the numbers.,
+Septic Shock,shotgun,Exotic talent. Not counted in the numbers.,

@@ -1,0 +1,8 @@
+name,slot,brand,quality,core,attrs,free_attrs,talent,talent_text,talent_effects
+Fox's Prayer,kneepads,Overlord Armaments,named,offense,ooc:8,1,,,
+Contractor's Gloves,gloves,Petrov Defense Group,named,offense,dta:8,1,,,
+The Sacrifice,chest,Providence Defense,named,offense,,2,Perfect Glass Cannon,All damage you deal is amplified by 30%. All damage you take is amplified by 60%.,amp:30
+Chainkiller,chest,"Walker, Harris & Co.",named,offense,,2,Perfect Headhunter,After a headshot kill your next shot deals bonus damage. Not counted in the numbers.,
+The Gift,backpack,Providence Defense,named,offense,,2,Perfect Vigilance,25% weapon damage. Taking damage disables it for a short time.,weapon_damage:25
+Coyote's Mask,mask,,exotic,offense,chc:6;chd:12,0,Pack Instincts,You and allies gain crit chance or crit damage based on distance to the target. Counted as the 15-25m bonus.,chc:10;chd:10
+Memento,backpack,,exotic,all,,2,Kill Confirmed,Enemies drop trophies that grant short-term and long-term buffs. Not counted in the numbers.,

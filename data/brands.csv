@@ -1,0 +1,23 @@
+name,type,core,bonus1,bonus2,bonus3,bonus4_name,bonus4_text,bonus4
+Providence Defense,brand,offense,hsd:15,chc:10,chd:15,,,
+Grupo Sombra S.A.,brand,offense,chd:15,explosive_damage:20,hsd:15,,,
+Ceska Vyroba S.R.O.,brand,offense,chc:10,hazard_protection:20,health_pct:90,,,
+Fenris Group AB,brand,offense,ar_damage:10,reload_speed:30,stability:50,,,
+Sokolov Concern,brand,offense,smg_damage:10,chd:15,chc:10,,,
+"Walker, Harris & Co.",brand,offense,weapon_damage:5,dta:5,dth:5,,,
+Overlord Armaments,brand,offense,rifle_damage:10,accuracy:30,weapon_handling:30,,,
+Petrov Defense Group,brand,offense,lmg_damage:10,weapon_handling:15,ammo_capacity:30,,,
+Airaldi Holdings,brand,offense,mmr_damage:10,hsd:10,dta:10,,,
+Gila Guard,brand,defense,armor_pct:5,health_pct:60,armor_regen_pct:1,,,
+Badger Tuff,brand,defense,shotgun_damage:10,armor_pct:5,armor_on_kill_pct:10,,,
+Belstone Armory,brand,defense,armor_regen_pct:1,armor_on_kill_pct:10,incoming_repairs:20,,,
+Hana-U Corporation,brand,utility,skill_haste:10,skill_damage:10,weapon_damage:10,,,
+Murakami Industries,brand,utility,skill_duration:20,repair_skills:15,skill_damage:15,,,
+Alps Summit Armament,brand,utility,repair_skills:15,skill_duration:20,skill_haste:10,,,
+Empress International,brand,utility,skill_health:10,skill_damage:10,skill_efficiency:10,,,
+Striker's Battlegear,gearset,offense,,weapon_handling:15,rof:15,Striker's Gamble,Weapon hits stack 0.65% weapon damage up to 100 times. Counted at 100 stacks.,weapon_damage:65
+Heartbreaker,gearset,offense,,ar_damage:15;lmg_damage:15,weapon_handling:15,Heartstopper,Headshots pulse enemies. Hitting pulsed enemies stacks 1% weapon damage and bonus armor up to 50 times. Counted at 50 stacks.,weapon_damage:50
+Hunter's Fury,gearset,offense,,smg_damage:15;shotgun_damage:15,armor_on_kill_pct:20,Apex Predator,Enemies within 15m take 20% amplified damage. Close kills disorient nearby enemies.,amp:20
+Negotiator's Dilemma,gearset,offense,,chc:15,chd:20,Hostile Negotiations,Critical hits mark enemies. Critical hits on a marked enemy also damage the other marked enemies. Not counted in the numbers.,
+Foundry Bulwark,gearset,defense,,armor_pct:10,armor_regen_pct:1,Makeshift Repairs,A share of damage taken to armor or shield is repaired over time. Not counted in the numbers.,
+Future Initiative,gearset,utility,,repair_skills:30,skill_duration:30;skill_haste:30,Ground Control,At full armor you and allies deal 15% more weapon and skill damage.,weapon_damage:15;skill_damage:15

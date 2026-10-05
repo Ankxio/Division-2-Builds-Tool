@@ -1,0 +1,16 @@
+name,category,kind,cooldown
+Assault Turret,Turret,damage,60
+Sniper Turret,Turret,damage,60
+Striker Drone,Drone,damage,60
+Fixer Drone,Drone,repair,60
+Reviver Hive,Hive,repair,180
+Restorer Hive,Hive,repair,90
+Reinforcer Chem Launcher,Chem Launcher,repair,30
+Firestarter Chem Launcher,Chem Launcher,damage,30
+Cluster Seeker Mine,Seeker Mine,damage,40
+Bulwark Shield,Shield,defense,40
+Crusader Shield,Shield,defense,40
+Scanner Pulse,Pulse,utility,40
+Blinder Firefly,Firefly,utility,60
+Explosive Sticky Bomb,Sticky Bomb,damage,60
+Artificer Hive,Hive,utility,90

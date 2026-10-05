@@ -1,0 +1,11 @@
+key,value,notes
+game_version,Seed data (unverified),Shown in the site header. Change it to the title update your data matches.
+base_chc,0,Critical hit chance before any gear (%)
+base_chd,25,Critical hit damage before any gear (%)
+chc_cap,60,Maximum critical hit chance (%)
+base_armor,0,Armor with no defensive cores. Set this to the in-game value.
+base_health,0,Health with no gear. Set this to the in-game value.
+core_offense,weapon_damage:15,What one red core gives
+core_defense,armor:170000,What one blue core gives
+core_utility,skill_tier:1,What one yellow core gives
+weapon_core,15,Weapon type damage every weapon rolls as its first core (%)

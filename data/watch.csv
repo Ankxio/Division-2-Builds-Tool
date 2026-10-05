@@ -1,0 +1,17 @@
+stat,category,max,levels
+weapon_damage,Offensive,10,50
+chc,Offensive,10,50
+chd,Offensive,20,50
+hsd,Offensive,20,50
+armor_pct,Defensive,10,50
+health_pct,Defensive,10,50
+explosive_resistance,Defensive,10,50
+hazard_protection,Defensive,10,50
+skill_damage,Utility,10,50
+skill_haste,Utility,10,50
+skill_duration,Utility,20,50
+repair_skills,Utility,10,50
+accuracy,Handling,10,50
+stability,Handling,10,50
+reload_speed,Handling,10,50
+ammo_capacity,Handling,20,50
