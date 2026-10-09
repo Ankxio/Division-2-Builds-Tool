@@ -1027,7 +1027,8 @@ function endBoot(startedAt) {
 
 async function start() {
   const startedAt = performance.now();
-  $('#sheet-link').href = CONFIG.sheetUrl;
+  const credit = $('#sheet-link');
+  if (credit) credit.href = CONFIG.sheetUrl;
   const [custom, snapshot] = await Promise.all([loadCustom(), loadSnapshot()]);
   const offline = finish(readSheet(snapshot), custom);
   db = offline;

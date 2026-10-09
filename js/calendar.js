@@ -45,7 +45,8 @@ function place(e, now) {
   if (e.from === null) return 'unknown';
   if (e.from > now) return 'upcoming';
   if (e.permanent) return 'archive';
-  if (e.to === null) return 'unknown';
+  // A start-only event from long ago is over, whatever its end date was.
+  if (e.to === null) return now - e.from > 30 * DAY ? 'archive' : 'unknown';
   if (e.to > now) return 'active';
   return now - e.to <= RECENT_DAYS * DAY ? 'ended' : 'archive';
 }
@@ -169,6 +170,11 @@ async function load() {
   const [s, e, auto] = files.slice(0, 3).map(parseTable);
   try { news = JSON.parse(files[3] || '{}').items || []; } catch { news = []; }
   seasons = s.map(r => ({ ...r, from: moment(r.start), to: moment(r.end) }));
+  // A season with no end date ends when the next one starts.
+  for (const x of seasons) {
+    const later = seasons.filter(y => y.from !== null && x.from !== null && y.from > x.from).map(y => y.from);
+    if (x.to === null && later.length) x.to = Math.min(...later);
+  }
   // A row written by hand wins over an automatic one about the same thing in the same season.
   const key = n => String(n).toLowerCase().replace(/[^a-z0-9]/g, '');
   const extra = auto.filter(r => !e.some(m => m.season === r.season && (key(m.name).includes(key(r.name)) || key(r.name).includes(key(m.name)))))

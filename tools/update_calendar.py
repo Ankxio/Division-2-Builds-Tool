@@ -9,6 +9,9 @@ Only what an announcement states is used: an event is created when the title or 
 real dates ("coming on November 3", "Deadeye Overdrive runs September 29 - October 6"). Rows
 you write yourself in data/events.csv win over an automatic row with the same name in the
 same season.
+
+It also notices a new season: the long launch article Ubisoft posts for each one ("The
+Division 2: Red Horizon") adds a row to data/seasons.csv, so nothing has to be done by hand.
 """
 import csv, datetime as dt, html, json, os, re, sys, urllib.request
 
@@ -23,6 +26,10 @@ BETWEEN = r'(?:-|–|—|to|until|through|till|and\s+(?:ends|runs|running)\s+(?:
 RANGE = re.compile(rf'{DATE}\s*,?\s*{BETWEEN}\s*(?:{DATE}|(\d{{1,2}})(?:st|nd|rd|th)?)', re.I)
 COMING = re.compile(rf'(?:coming|arrives?|launch(?:es|ing)?|starts?|begins?|available|out|live)\s+(?:on\s+)?{DATE}', re.I)
 
+# "McMillan Reservoir Assault launches on July 21": one date, no end.
+SINGLE = re.compile(rf'\b(?:starts?|launch(?:es)?|begins?|opens?|unlocks?|becomes\s+available|arrives?|returns?)\s+(?:on\s+)?{DATE}', re.I)
+SEASON_TITLE = re.compile(r'^(?:Year\s+\d+\s+Season\s+\d+\s*[:–-]\s*)?(.{3,40})$', re.I)
+
 # Words that lead into a date range ("... runs from", "... will be available from") and are
 # not part of the event's name.
 LEAD = re.compile(r"(?:[\s,:(–—\u00b6-]+|\b(?:which|that|will|be|is|are|was|has|have|runs?|running|returns?|returning"
@@ -34,10 +41,11 @@ GENERIC = {'event', 'eventpass', 'projectchain', 'twitchdrops', 'globalevent', '
 NOT_A_NAME = {'compensation', 'summary', 'note', 'other', 'rewards', 'wave', 'week', 'howtojoin', 'howitworks', 'patchnotes'}
 PATCH_NOTES = re.compile(r'title update|^\[?TU|^update\b', re.I)
 CATEGORIES = [
+    (r'climax mission', 'Mission'), (r'classified assignment', 'Classified Assignment'),
     (r'twitch|drops', 'Twitch Drops'), (r'event pass', 'Event Pass'), (r'stretch goals|season pass', 'Season Pass'),
     (r'overdrive|stats? multiplier', 'Stat Bonus'), (r'surge|\bxp\b|boost|resource multiplier', 'Resource Bonus'),
     (r'global event|rage harvest|reanimated|ambush|assault|corrosive shell|golden bullet|shd exposed', 'Global Event'),
-    (r'classified assignment', 'Classified Assignment'), (r'project', 'Project Chain'), (r'collab| x ', 'Collaboration'),
+    (r'project', 'Project Chain'), (r'collab| x ', 'Collaboration'),
     (r'contest|sweepstake', 'Contest'), (r'incursion|raid', 'Incursion'),
 ]
 
@@ -91,7 +99,7 @@ def shouting(word):
 
 def tidy(words):
     """A run of words -> a name: no leading "The", headings out of capitals."""
-    while words and words[0].lower().strip(':') in JOINERS | NOT_A_NAME | {'new', 'our'}:
+    while words and words[0].lower().strip(':') in (JOINERS - {'into'}) | NOT_A_NAME | {'new', 'our'}:
         words = words[1:]
     while words and words[-1].lower() in JOINERS:
         words = words[:-1]
@@ -190,7 +198,68 @@ def events_from(item):
             continue
         around = before[-120:]
         found.append((name, start, end, 'Dates read from the announcement text.', category_of(name, around), own))
+
+    ranges = [m.span() for m in RANGE.finditer(text)]
+    for m in SINGLE.finditer(text):
+        start = on(m[1], m[2], m[3], posted)
+        if not start or any(a <= m.end() and m.start() <= b for a, b in ranges):
+            continue
+        before = text[max(0, m.start() - 160):m.start()]
+        full = name_before(before)
+        name = re.sub(r'^.*,\s*(?=\S+\s+\S)', '', re.sub(r'\s+[–—-]\s+.*$', '', full))  # "Classified Assignment, McMillan ..."
+        key = re.sub(r'\d', '', squash(name))
+        if key in GENERIC or key in NOT_A_NAME or len(key) < 6 or len(name.split()) < 2:
+            continue
+        if any(f[1] == start and (key in squash(f[0]) or squash(f[0]) in key) for f in found):
+            continue
+        found.append((name, start, None, 'Start date read from the announcement text.', category_of(full, before[-120:]), True))
     return found
+
+
+def new_seasons(official, seasons):
+    """Seasons that started after the last one in seasons.csv, found from their launch articles.
+
+    Ubisoft posts one long article per season, titled with the season's name, the afternoon
+    before it starts. The season's number comes from the first patch notes that follow
+    ("[TUY8S4.1]"), from a "Year 8 Season 4" in the text, or else from counting on by one.
+    """
+    known = sorted((s for s in seasons if s['start']), key=lambda s: s['start'])
+    if not known:
+        return []
+    added = []
+    for item in sorted(official, key=lambda i: i['date']):
+        posted = dt.datetime.fromtimestamp(item['date'], dt.timezone.utc).date()
+        last = (known + added)[-1]
+        title = SEASON_TITLE.match(clean_title(item['title']))
+        text = plain(item.get('contents'))
+        if posted < dt.date.fromisoformat(last['start']) + dt.timedelta(days=45) or not title or len(text) < 9000:
+            continue
+        name = title[1].strip()
+        if PATCH_NOTES.search(item['title']) or len(name.split()) > 4 or re.search(r'gamescom|recap|event|showcase|dlc|\bx\b', name, re.I):
+            continue
+        # When it starts: a stated date if any announcement gives one, else the day after the article.
+        start = posted + dt.timedelta(days=1)
+        for other in official:
+            said = re.search(rf'{re.escape(name)}\s+(?:launches|arrives|starts|begins|is\s+coming)\s+(?:on\s+)?{DATE}', plain(other.get('contents')), re.I)
+            if said and abs(other['date'] - item['date']) < 40 * 86400:
+                start = on(said[1], said[2], said[3], posted) or start
+                break
+        tag = re.match(r'\s*Year\s+(\d+)\s+Season\s+(\d+)', item['title'], re.I)
+        tag = tag or next((m for i in sorted(official, key=lambda i: i['date']) if i['date'] >= item['date']
+                           for m in [re.search(r'Y(\d+)S(\d+)\.\d', i['title'])] if m), None)
+        tag = tag or re.search(rf'Year\s+(\d+)\s+Season\s+(\d+)\s*[:–-]\s*{re.escape(name)}', item['title'] + ' ' + text, re.I)
+        before = re.match(r'Y(\d+)S(\d+)', last['id'])
+        if tag:
+            year, number = tag[1], tag[2]
+        elif before:
+            year, number = before[1], int(before[2]) + 1
+        else:
+            continue
+        season = {'id': f'Y{year}S{number}', 'year': str(year), 'name': name, 'start': start.isoformat(), 'end': ''}
+        if any(s['id'] == season['id'] for s in seasons + added):
+            continue
+        added.append(season)
+    return added
 
 
 def season_for(day, seasons):
@@ -210,6 +279,19 @@ def main():
 
     with open(os.path.join(ROOT, 'data', 'seasons.csv'), encoding='utf-8-sig', newline='') as f:
         seasons = list(csv.DictReader(f))
+    fresh = new_seasons(official, seasons)
+    if fresh:
+        seasons = fresh[::-1] + seasons
+        # Each season ends when the next one starts.
+        by_start = sorted((s for s in seasons if s['start']), key=lambda s: s['start'])
+        for earlier, later in zip(by_start, by_start[1:]):
+            earlier['end'] = earlier['end'] or later['start']
+        with open(os.path.join(ROOT, 'data', 'seasons.csv'), 'w', encoding='utf-8', newline='') as f:
+            writer = csv.DictWriter(f, ['id', 'year', 'name', 'start', 'end'], lineterminator='\n')
+            writer.writeheader()
+            writer.writerows(seasons)
+        for s in fresh:
+            print(f"New season: {s['id']} {s['name']} from {s['start']}")
 
     news = [{
         'title': i['title'], 'url': i['url'],
@@ -222,13 +304,21 @@ def main():
     for item in official:
         for name, start, end, note, category, own in events_from(item):
             key, first, last = squash(name), start.isoformat(), end.isoformat() if end else ''
+            if any(squash(s['name']) == key for s in seasons):  # the season itself is not an event
+                continue
             # A range named after a heading that starts with a longer event is a part of that event.
             if not own and any(r['start'] == first and r['end'] > last for r in rows):
                 continue
             # The same event is often announced twice: in its own article and in the patch notes.
-            if any(r['start'] == first and (not last or not r['end'] or r['end'] == last) and (key in k or k in key)
-                   for r, k in zip(rows, keys)):
+            twin = next((r for r, k in zip(rows, keys) if r['start'] == first and (key in k or k in key)
+                         and (not last or not r['end'] or r['end'] in (last, 'permanent'))), None)
+            if twin:
+                if last and not twin['end']:  # the other announcement gave the end date too
+                    twin['end'] = last
                 continue
+            # Missions stay once they unlock.
+            if not last and category in ('Classified Assignment', 'Incursion') or (not last and re.search(r'mission|assignment', name, re.I)):
+                last = 'permanent'
             keys.append(key)
             rows.append({
                 'season': season_for(start, seasons), 'category': category, 'name': name,
