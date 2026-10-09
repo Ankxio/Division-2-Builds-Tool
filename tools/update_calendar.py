@@ -3,31 +3,62 @@
 It reads Ubisoft's announcements for The Division 2 from Steam's public news feed and writes:
 
   data/news.json         the latest announcements, shown as "Latest from Ubisoft"
-  data/auto_events.csv   events it could date from those announcements
+  data/auto_events.csv   every event it could date from those announcements, past and coming
 
 Only what an announcement states is used: an event is created when the title or text gives
-real dates ("coming on November 3", "from October 6 to October 13"). Rows you write yourself
-in data/events.csv always win over an automatic row with the same name.
+real dates ("coming on November 3", "Deadeye Overdrive runs September 29 - October 6"). Rows
+you write yourself in data/events.csv win over an automatic row with the same name in the
+same season.
 """
 import csv, datetime as dt, html, json, os, re, sys, urllib.request
 
 APP_ID = 2221490  # Tom Clancy's The Division 2 on Steam
-FEED = f'https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid={APP_ID}&count=60&maxlength=0&format=json'
+FEED = f'https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid={APP_ID}&count=2000&maxlength=0&format=json'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MONTHS = {m.lower(): i for i, m in enumerate(
     ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'], 1)}
 MONTH = r'(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?'
-DATE = rf'({MONTH})\s+(\d{{1,2}})(?:st|nd|rd|th)?(?:,?\s+(20\d\d))?'
-RANGE = re.compile(rf'{DATE}\s*(?:-|–|—|to|until|through|till)\s*(?:{DATE}|(\d{{1,2}})(?:st|nd|rd|th)?)', re.I)
+DATE = rf'\b({MONTH})\s+(\d{{1,2}})(?:st|nd|rd|th)?(?:,?\s+(20\d\d))?'
+BETWEEN = r'(?:-|–|—|to|until|through|till|and\s+(?:ends|runs|running)\s+(?:on|until|through)|and)'
+RANGE = re.compile(rf'{DATE}\s*,?\s*{BETWEEN}\s*(?:{DATE}|(\d{{1,2}})(?:st|nd|rd|th)?)', re.I)
 COMING = re.compile(rf'(?:coming|arrives?|launch(?:es|ing)?|starts?|begins?|available|out|live)\s+(?:on\s+)?{DATE}', re.I)
 
+# Words that lead into a date range ("... runs from", "... will be available from") and are
+# not part of the event's name.
+LEAD = re.compile(r"(?:[\s,:(–—\u00b6-]+|\b(?:which|that|will|be|is|are|was|has|have|runs?|running|returns?|returning"
+                  r"|live|available|active|starts?|starting|begins?|begun|officially|opens?|from|between|on|tune in"
+                  r"|log in|event dates|event period|dates|period|now|again|for a limited time|in the division 2)\b)$", re.I)
+JOINERS = {'of', 'the', 'for', 'x', 'a', 'and', 'by', 'in', 'to', 'into', '&', '–', '-'}
+# Names that say nothing without the announcement they came from.
+GENERIC = {'event', 'eventpass', 'projectchain', 'twitchdrops', 'globalevent', 'projectschain', 'drops', 'contest'}
+NOT_A_NAME = {'compensation', 'summary', 'note', 'other', 'rewards', 'wave', 'week', 'howtojoin', 'howitworks', 'patchnotes'}
+PATCH_NOTES = re.compile(r'title update|^\[?TU|^update\b', re.I)
+CATEGORIES = [
+    (r'twitch|drops', 'Twitch Drops'), (r'event pass', 'Event Pass'), (r'stretch goals|season pass', 'Season Pass'),
+    (r'overdrive|stats? multiplier', 'Stat Bonus'), (r'surge|\bxp\b|boost|resource multiplier', 'Resource Bonus'),
+    (r'global event|rage harvest|reanimated|ambush|assault|corrosive shell|golden bullet|shd exposed', 'Global Event'),
+    (r'classified assignment', 'Classified Assignment'), (r'project', 'Project Chain'), (r'collab| x ', 'Collaboration'),
+    (r'contest|sweepstake', 'Contest'), (r'incursion|raid', 'Incursion'),
+]
 
-def plain(text):
-    """Steam markup and HTML -> plain text."""
-    text = re.sub(r'\[/?[^\]]{1,600}\]', ' ', text or '')
+
+BREAK = '\u00b6'  # marks where a heading, paragraph or list item ended
+
+
+def plain(text, breaks=False):
+    """Steam markup and HTML -> plain text. With breaks, line ends are kept as a mark."""
+    text = text or ''
+    if breaks:
+        text = re.sub(r'\[/?(?:p|h\d|\*|list|olist|hr|tr|td|th|table)\b[^\]]*\]|\n|<br\s*/?>|</?(?:p|li|h\d|ul|ol|div)\b[^>]*>',
+                      f' {BREAK} ', text, flags=re.I)
+    text = re.sub(r'\[/?[^\]]{1,600}\]', ' ', text)
     text = re.sub(r'<[^>]+>', ' ', text)
     text = re.sub(r'\{STEAM_CLAN_IMAGE\}\S+', ' ', text)
     return re.sub(r'\s+', ' ', html.unescape(text)).strip()
+
+
+def squash(name):
+    return re.sub(r'^the', '', re.sub(r'[^a-z0-9]', '', name.lower()))
 
 
 def month_number(word):
@@ -50,32 +81,115 @@ def on(month, day, year, near):
 def clean_title(title):
     title = re.sub(r'^\s*\[[^\]]+\]\s*', '', title)                       # "[TUY8S3.1] ..."
     title = re.sub(r'^(Tom Clancy.s )?The Division 2\s*[:\-–]\s*', '', title, flags=re.I)
-    return title.strip()
+    return re.sub(r'\s+', ' ', title).strip()
+
+
+def shouting(word):
+    letters = re.sub(r'[^A-Za-z]', '', word)
+    return len(letters) >= 2 and letters.isupper()
+
+
+def tidy(words):
+    """A run of words -> a name: no leading "The", headings out of capitals."""
+    while words and words[0].lower().strip(':') in JOINERS | NOT_A_NAME | {'new', 'our'}:
+        words = words[1:]
+    while words and words[-1].lower() in JOINERS:
+        words = words[:-1]
+    if words and all(shouting(w) or w.lower() in JOINERS or not re.search('[a-z]', w) for w in words):
+        words = [w if re.search(r'\d', w) else w.lower() if w.lower() in JOINERS else w.capitalize() for w in words]
+    return ' '.join(words).strip(' ,:;.!"“”()')
+
+
+def name_before(before):
+    """The event named right before a date range: "Deadeye Overdrive Runs", "RAGE HARVEST From"."""
+    while True:
+        cut = LEAD.sub('', before)
+        if cut == before:
+            break
+        before = cut
+    words, picked = before.split(), []
+    heading = bool(words) and shouting(words[-1]) and len(words[-1]) >= 4
+    for word in reversed(words):
+        if word == BREAK or re.search(r'[.!?;:]$', word) or len(picked) >= 8:
+            break
+        if heading:
+            if not (shouting(word) or word.lower() in JOINERS):
+                break
+        elif not (word[0].isupper() or word[0].isdigit() or word.lower() in JOINERS or re.fullmatch(r'x\d+', word)) or (shouting(word) and len(word) >= 4):
+            break
+        picked.insert(0, word)
+    return tidy(picked)
+
+
+def heading_before(before):
+    """The nearest heading in capitals above a date range."""
+    for line in reversed(before.split(BREAK)[:-1]):
+        words = line.split()
+        if words and len(words) <= 8 and all(shouting(w) or w.lower() in JOINERS or not re.search('[A-Za-z]', w) for w in words) \
+                and any(len(w) >= 4 for w in words):
+            return tidy(words)
+    return ''
+
+
+def category_of(name, around):
+    for where in (name, around):
+        for pattern, label in CATEGORIES:
+            if re.search(pattern, where, re.I):
+                return label
+    return 'Event'
 
 
 def events_from(item):
-    """The dated events one announcement states, as (name, start, end, note)."""
+    """The dated events one announcement states, as (name, start, end, note, category, own name)."""
     posted = dt.datetime.fromtimestamp(item['date'], dt.timezone.utc).date()
-    title, text = item['title'], plain(item.get('contents'))
-    name = clean_title(title)
+    title, text = item['title'], plain(item.get('contents'), breaks=True)
+    article = clean_title(title)
     found = []
 
     coming = COMING.search(title)
     if coming:
         start = on(coming[1], coming[2], coming[3], posted)
         if start:
-            short = re.sub(rf'\s*(?:is\s+)?{COMING.pattern}.*$', '', name, flags=re.I).strip(' -:') or name
-            found.append((short, start, None, 'Start date from the announcement title.'))
+            short = re.sub(rf'\s*(?:is\s+)?{COMING.pattern}.*$', '', article, flags=re.I).strip(' -:') or article
+            found.append((short, start, None, 'Start date from the announcement title.', 'Announced', True))
 
-    # A date range in the text, kept only when it sits near the start: further down an
-    # article, ranges tend to be about something other than the headline.
-    for m in RANGE.finditer(text[:1500]):
+    floor = 0  # where the previous range ended: a name is never looked for further back than that
+    for m in RANGE.finditer(text):
         start = on(m[1], m[2], m[3], posted)
         end = on(m[4], m[5], m[6], posted) if m[4] else on(m[1], m[7], m[3], posted)
-        if start and end and dt.timedelta(0) < end - start <= dt.timedelta(days=120):
-            if not any(f[0] == name or f[1] == start for f in found):
-                found.append((name, start, end, 'Dates read from the announcement text.'))
-            break
+        before, floor = text[max(floor, m.start() - 400):m.start()], m.end()
+        if not (start and end and dt.timedelta(0) < end - start <= dt.timedelta(days=120)):
+            continue
+        own = True  # the range has a name of its own, rather than one borrowed from a heading
+        after = re.match(rf"\s*:\s*((?:(?!{MONTH}\s)[A-Z0-9][\w’'&-]*\s+){{1,6}})", text[m.end():])
+        if after:  # "July 21-28: National Bond Armory"
+            name, floor = tidy(after[1].split()), m.end() + after.end()
+        else:
+            name = name_before(before[-160:])
+            if not name:  # "From September 8 to September 15, Retaliation Surge will be ..."
+                after = re.match(r"\s*,\s*((?:[A-Z][\w’'&-]*\s+){2,6})", text[m.end():])
+                name = tidy(after[1].split()) if after else ''
+        key = re.sub(r'\d', '', squash(name))
+        if key in GENERIC or key in NOT_A_NAME or len(key) < 4:
+            above, own = heading_before(before), False
+            if above and squash(above) not in GENERIC | NOT_A_NAME:
+                name = above
+            elif key in GENERIC and not PATCH_NOTES.search(article):
+                name = f'{article}: {name}'
+            elif m.start() < 1500 and not PATCH_NOTES.search(article):
+                # Near the top of an article, a range with no name of its own is about the headline.
+                name = article
+            else:
+                continue
+            # A nameless range inside one already found is a detail of it (a reward week, a raffle).
+            if any(f[2] and f[1] <= start and end <= f[2] and (f[1], f[2]) != (start, end) for f in found):
+                continue
+        name = re.sub(r'\s+[–—-]\s+.*$', '', name)  # "Tech Overdrive – Stats Multiplier Event"
+        key = squash(name)
+        if any(f[1] == start and f[2] in (None, end) and (key in squash(f[0]) or squash(f[0]) in key) for f in found):
+            continue
+        around = before[-120:]
+        found.append((name, start, end, 'Dates read from the announcement text.', category_of(name, around), own))
     return found
 
 
@@ -87,7 +201,7 @@ def season_for(day, seasons):
 
 def main():
     request = urllib.request.Request(FEED, headers={'User-Agent': 'division2-build-planner calendar updater'})
-    with urllib.request.urlopen(request, timeout=30) as response:
+    with urllib.request.urlopen(request, timeout=60) as response:
         items = json.load(response)['appnews']['newsitems']
     # Ubisoft's own posts only; the feed also carries press articles.
     official = [i for i in items if i.get('feedname') == 'steam_community_announcements']
@@ -103,20 +217,25 @@ def main():
         'summary': plain(i.get('contents'))[:220],
     } for i in official[:20]]
 
-    rows, seen = [], set()
-    today = dt.datetime.now(dt.timezone.utc).date()
+    # The whole history is read every time, so past events stay on the calendar.
+    rows, keys = [], []
     for item in official:
-        for name, start, end, note in events_from(item):
-            key = re.sub(r'[^a-z0-9]', '', name.lower())
-            # Long-finished events are left out: the calendar is about now and what is next.
-            if key in seen or (end or start) < today - dt.timedelta(days=60):
+        for name, start, end, note, category, own in events_from(item):
+            key, first, last = squash(name), start.isoformat(), end.isoformat() if end else ''
+            # A range named after a heading that starts with a longer event is a part of that event.
+            if not own and any(r['start'] == first and r['end'] > last for r in rows):
                 continue
-            seen.add(key)
+            # The same event is often announced twice: in its own article and in the patch notes.
+            if any(r['start'] == first and (not last or not r['end'] or r['end'] == last) and (key in k or k in key)
+                   for r, k in zip(rows, keys)):
+                continue
+            keys.append(key)
             rows.append({
-                'season': season_for(start, seasons), 'category': 'Announced', 'name': name,
-                'detail': 'From an official announcement', 'start': start.isoformat(),
-                'end': end.isoformat() if end else '', 'note': note, 'url': item['url'],
+                'season': season_for(start, seasons), 'category': category, 'name': name,
+                'detail': 'From an official announcement', 'start': first, 'end': last,
+                'note': note, 'url': item['url'],
             })
+    rows.sort(key=lambda r: r['start'], reverse=True)
 
     with open(os.path.join(ROOT, 'data', 'news.json'), 'w', encoding='utf-8', newline='\n') as f:
         json.dump({'items': news}, f, ensure_ascii=False, indent=1)
@@ -127,7 +246,7 @@ def main():
         writer.writerows(rows)
     print(f'{len(news)} announcements, {len(rows)} dated events')
     for r in rows:
-        print(f"  {r['start']} -> {r['end'] or '?'}  {r['name']}")
+        print(f"  {r['start']} -> {r['end'] or '?'}  {r['name']}".encode('ascii', 'replace').decode())
 
 
 if __name__ == '__main__':

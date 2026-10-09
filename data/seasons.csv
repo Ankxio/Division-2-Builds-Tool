@@ -1,14 +1,14 @@
 id,year,name,start,end
 Y8S3,8,Red Horizon,2026-08-27,
-Y8S2,8,Into The Dark,,
-Y8S1,8,Rise Up,,
-Y8A,8,10th Anniversary,,
-Y7S3,7,Mutiny,,
-Y7S2,7,The Pact,,
-Y7S1,7,Crossroads,,
-Y6S3,6,Burden Of Truth,,
-Y6S2,6,Shades Of Red,,
-Y6S1,6,First Rogue,,
-Y5S3,5,Vanguard,,
-Y5S2,5,Puppeteers,,
-Y5S1,5,Broken Wings,,
+Y8S2,8,Into The Dark,2026-06-16,2026-08-27
+Y8S1,8,Rise Up,2026-04-02,2026-06-16
+Y8A,8,10th Anniversary,2026-03-03,2026-04-02
+Y7S3,7,Mutiny,2025-12-02,2026-03-03
+Y7S2,7,The Pact,2025-09-09,2025-12-02
+Y7S1,7,Crossroads,2025-05-27,2025-09-09
+Y6S3,6,Burden Of Truth,2025-02-25,2025-05-27
+Y6S2,6,Shades Of Red,2024-10-29,2025-02-25
+Y6S1,6,First Rogue,2024-06-11,2024-10-29
+Y5S3,5,Vanguard,2024-02-06,2024-06-11
+Y5S2,5,Puppeteers,2023-10-03,2024-02-06
+Y5S1,5,Broken Wings,2023-06-01,2023-10-03

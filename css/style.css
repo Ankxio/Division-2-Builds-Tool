@@ -533,3 +533,7 @@ button.row:hover .row-art { opacity: 1; transform: scale(1.08); }
 /* Animations off: the visitor's system asks for less motion, or they switched them off. */
 [data-motion="off"] *, [data-motion="off"] *::before, [data-motion="off"] *::after { animation: none !important; transition: none !important; }
 [data-motion="off"] #boot, [data-motion="off"] dialog.sheet[open]::before, [data-motion="off"] .topbar::after { display: none; }
+
+/* Calendar: the live clock under the season name */
+.live-line { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 12px; }
+.live-line .chip b { font-variant-numeric: tabular-nums; }
