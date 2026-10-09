@@ -1,3 +1,4 @@
+import { lang, locale, tr } from './i18n.js';
 import { CONFIG } from './config.js';
 import { loadCustom, loadSnapshot, loadLive, finish } from './data.js';
 import { readSheet, GEAR_SLOTS, MOD_SLOTS, WEAPON_TYPES } from './sheet.js';
@@ -37,8 +38,10 @@ const ui = { edit: null, picking: false, query: '', filter: 'all' };
 
 const $ = sel => document.querySelector(sel);
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const fmt = n => (isFinite(n) ? Math.round(n).toLocaleString('en-US') : '∞');
-const fmt1 = n => (Math.round(n * 10) / 10).toLocaleString('en-US');
+// Numbers are written the way the chosen language writes them: 196,998.5 or 196 998,5.
+const fmt = n => (isFinite(n) ? Math.round(n).toLocaleString(locale) : '∞');
+const fmt1 = n => (Math.round(n * 10) / 10).toLocaleString(locale);
+const fmt2 = n => n.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 const compact = n => (n >= 1e6 ? `${fmt1(n / 1e6)}M` : n >= 1e3 ? `${fmt1(n / 1e3)}K` : fmt(n));
 const icon = name => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${ICON[name] || ''}</svg>`;
@@ -373,7 +376,7 @@ function weaponPanel(result) {
       ['Magazine', fmt(w.mag)], ['Reload', `${fmt1(w.reload)}s`],
       ['Crit chance', `${fmt1(w.chc)}%`], ['Crit damage', `${fmt1(w.chd)}%`],
       ['Headshot damage', `${fmt1(w.hsd)}%`], ['Weapon damage', `+${fmt1(w.weaponDamage)}%`],
-      ['Total weapon damage', `+${fmt1(w.twd)}%`], ['Amplified', `×${w.amp.toFixed(2)}`],
+      ['Total weapon damage', `+${fmt1(w.twd)}%`], ['Amplified', `×${fmt2(w.amp)}`],
       ['Damage to armor', `${fmt1(w.dta)}%`], ['Damage to health', `${fmt1(w.dth)}%`],
     ])}
   </section>`;
@@ -583,29 +586,31 @@ function comparePanel(result) {
       return `<tr><th>${label}</th><td>${x === undefined ? '—' : x >= 1000 ? fmt(x) : fmt1(x)}</td><td>${y === undefined ? '—' : y >= 1000 ? fmt(y) : fmt1(y)}</td>
         <td class="${dx > 0 ? 'up' : dx < 0 ? 'down' : ''}">${dx > 0 ? '+' : ''}${Math.abs(pct) >= 0.05 ? `${fmt1(pct)}%` : '0%'}</td></tr>`;
     }).join('');
-    body = `<table class="compare"><thead><tr><th></th><th>This build</th><th>${esc(ui.compare)}</th><th>Difference</th></tr></thead><tbody>${rows}</tbody></table>
+    body = `<table class="compare"><thead><tr><th></th><th>This build</th><th translate="no">${esc(ui.compare)}</th><th>Difference</th></tr></thead><tbody>${rows}</tbody></table>
       <p class="note">Both builds use the view selected above (${inCombat(state) ? 'in combat' : 'stat sheet'}) and each one's weapon in hand.</p>`;
   }
   return `<section class="panel"><h2>Compare builds</h2>${picker}${body}</section>`;
 }
 
-// The build as plain text, for pasting into a chat.
+// The build as plain text, for pasting into a chat. It never reaches the page, so it is put
+// into the visitor's language here.
 function buildText(result) {
-  const lines = ['Division 2 build' + (result.spec ? ` (${result.spec.name})` : '')];
-  result.weapons.forEach((w, i) => { if (w) lines.push(`${WEAPON_SLOTS[i]}: ${w.name}${w.talent ? ` [${w.talent.name}]` : ''}`); });
+  const colon = lang === 'fr' ? ' : ' : ': ';
+  const lines = [tr('Division 2 build') + (result.spec ? ` (${tr(result.spec.name)})` : '')];
+  result.weapons.forEach((w, i) => { if (w) lines.push(`${tr(WEAPON_SLOTS[i])}${colon}${w.name}${w.talent ? ` [${w.talent.name}]` : ''}`); });
   for (const slot of GEAR_SLOTS) {
     const p = result.pieces[slot];
     if (!p) continue;
-    const attrs = [...p.attrs, ...p.free, ...p.mods].filter(a => a.stat).map(a => `${amount(a.stat, a.value)} ${SHORT[a.stat] || statLabel(a.stat)}`).join(', ');
-    lines.push(`${cap(slot)}: ${p.name}${p.proto ? ' (Prototype)' : ''} · ${CORE_NAME[p.coreType]}${p.talent ? ` [${p.talent.name}]` : ''}${attrs ? ` · ${attrs}` : ''}`);
+    const attrs = [...p.attrs, ...p.free, ...p.mods].filter(a => a.stat).map(a => `${amount(a.stat, a.value)} ${tr(SHORT[a.stat] || statLabel(a.stat))}`).join(', ');
+    lines.push(`${tr(cap(slot))}${colon}${p.name}${p.proto ? ' (Prototype)' : ''} · ${tr(CORE_NAME[p.coreType])}${p.talent ? ` [${p.talent.name}]` : ''}${attrs ? ` · ${attrs}` : ''}`);
   }
   const skills = state.skills.filter(Boolean);
-  if (skills.length) lines.push(`Skills: ${skills.join(', ')}`);
+  if (skills.length) lines.push(`${tr('Skills')}${colon}${skills.join(', ')}`);
   const w = result.weapons[state.active];
   const t = result.totals;
-  lines.push(`Cores: ${result.cores.offense} red / ${result.cores.defense} blue / ${result.cores.utility} yellow`);
-  if (w) lines.push(`${w.name}: ${fmt(dps(w, shotOptions()).sustained)} sustained DPS, ${fmt(w.rpm)} RPM, ${fmt1(w.chc)}% CHC, ${fmt1(w.chd)}% CHD, ${fmt1(w.hsd)}% HSD`);
-  lines.push(`Armor ${fmt(t.armor)} · Health ${fmt(t.health)} · Skill tier ${t.skillTier}`);
+  lines.push(tr(`Cores: ${result.cores.offense} red / ${result.cores.defense} blue / ${result.cores.utility} yellow`));
+  if (w) lines.push(`${w.name}${colon}${fmt(dps(w, shotOptions()).sustained)} ${tr('sustained DPS')}, ${fmt(w.rpm)} ${tr('RPM')}, ${fmt1(w.chc)}% CHC, ${fmt1(w.chd)}% CHD, ${fmt1(w.hsd)}% HSD`);
+  lines.push(`${tr('Armor')} ${fmt(t.armor)} · ${tr('Health')} ${fmt(t.health)} · ${tr('Skill tier')} ${t.skillTier}`);
   lines.push(location.href);
   return lines.join('\n');
 }
@@ -820,7 +825,7 @@ function renderBuilds() {
     <header class="sheet-head"><div><p class="eyebrow">This browser</p><h2>Saved builds</h2></div><button class="btn icon" data-action="closeBuilds" aria-label="Close">✕</button></header>
     <div class="sheet-body">
       <div class="pair save"><input id="save-name" class="search" type="text" placeholder="Name this build" aria-label="Build name" maxlength="60"><button class="btn primary" data-action="save">Save current</button></div>
-      <div class="list">${names.map(n => `<div class="row static"><span class="row-name">${esc(n)}</span>
+      <div class="list">${names.map(n => `<div class="row static"><span class="row-name" translate="no">${esc(n)}</span>
         <span class="row-actions"><button class="btn small" data-action="load" data-name="${esc(n)}">Load</button><button class="btn small ghost danger" data-action="delete" data-name="${esc(n)}">Delete</button></span></div>`).join('') || '<p class="note">Nothing saved yet. Saved builds stay in this browser; use Copy link to share one.</p>'}</div>
     </div></div>`;
 }

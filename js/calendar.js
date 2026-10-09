@@ -3,6 +3,7 @@
 // data/auto_events.csv (written every hour from Ubisoft's announcements). The clocks tick every
 // second and the data is read again every few minutes, so the page never needs a reload.
 
+import { dateLocale } from './i18n.js';
 import { parseTable } from './csv.js';
 
 const RESET_HOUR = 8; // the game's daily reset, in UTC
@@ -17,13 +18,14 @@ let updated = null, checked = null, shown = '';
 const $ = sel => document.querySelector(sel);
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const two = n => String(Math.max(0, n)).padStart(2, '0');
+const percent = n => `${n.toLocaleString(dateLocale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%`;
 
 // "2026-09-24" -> the moment of that day's reset. Anything else is "not known".
 function moment(text) {
   const m = String(text || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
   return m ? Date.UTC(+m[1], +m[2] - 1, +m[3], RESET_HOUR) : null;
 }
-const day = ms => new Date(ms).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const day = ms => new Date(ms).toLocaleDateString(dateLocale, { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
 // A countdown to a moment. tick() rewrites the inside every second.
 function clock(ms) {
@@ -59,15 +61,15 @@ function card(e, where, now) {
   else if (where === 'active') {
     const done = Math.min(100, Math.max(0, (now - e.from) / (e.to - e.from) * 100));
     side = `<p class="state live">Live now</p>${countdown(e.to, now)}<p class="until">Until event end</p>`;
-    bar = `<div class="progress" role="img" aria-label="${Math.round(done)}% of the event has passed" data-from="${e.from}" data-to="${e.to}"><i style="width:${done.toFixed(2)}%"></i></div><p class="pct">${done.toFixed(1)}%</p>`;
+    bar = `<div class="progress" role="img" aria-label="${Math.round(done)}% of the event has passed" data-from="${e.from}" data-to="${e.to}"><i style="width:${done.toFixed(2)}%"></i></div><p class="pct">${percent(done)}</p>`;
   } else if (where === 'ended') {
     const ago = Math.max(0, Math.floor((now - e.to) / DAY));
     side = `<p class="state">Ended</p><p class="until">${ago === 0 ? 'Ended today' : `Ended ${ago} ${ago === 1 ? 'day' : 'days'} ago`}</p>`;
   } else if (where === 'archive') side = `<p class="state">${e.permanent ? 'Unlocked' : 'Ended'}</p>`;
   else side = `<p class="state">Unconfirmed</p><p class="until">${e.from === null ? 'Dates TBA' : 'End date unclear'}</p>`;
   return `<article class="event ${where}">
-    <div><p class="eyebrow">${esc(e.category)}</p><h3>${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a>` : esc(e.name)}</h3><p class="note">${esc(e.detail)}</p>${dates}
-      ${e.note ? `<p class="note warn">${esc(e.note)}</p>` : ''}</div>
+    <div><p class="eyebrow">${esc(e.category)}</p><h3>${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a>` : esc(e.name)}</h3>${e.detail && !e.auto ? `<p class="note">${esc(e.detail)}</p>` : ''}${dates}
+      ${e.note && !e.auto ? `<p class="note warn">${esc(e.note)}</p>` : ''}</div>
     <div class="event-side">${side}</div>${bar}
   </article>`;
 }
@@ -139,7 +141,7 @@ function tick() {
   for (const el of document.querySelectorAll('.progress[data-from]')) {
     const done = Math.min(100, Math.max(0, (now - el.dataset.from) / (el.dataset.to - el.dataset.from) * 100));
     el.firstElementChild.style.width = `${done.toFixed(2)}%`;
-    if (el.nextElementSibling) el.nextElementSibling.textContent = `${done.toFixed(1)}%`;
+    if (el.nextElementSibling) el.nextElementSibling.textContent = percent(done);
   }
   const time = $('#clock'), fresh = $('#fresh');
   if (time) time.textContent = `${new Date(now).toLocaleTimeString('en-GB', { timeZone: 'UTC' })} UTC`;

@@ -2,6 +2,7 @@
 // data/escalation.json is rewritten by the hourly GitHub job (tools/update_escalation.py); the
 // page reads it again every few minutes and the reset clock ticks every second.
 
+import { dateLocale } from './i18n.js';
 import { gearArt, slotArt, weaponArt } from './art.js';
 import { loadCustom, loadSnapshot, finish } from './data.js';
 import { readSheet } from './sheet.js';
@@ -20,7 +21,7 @@ let data = null, last = '', db = null;
 const $ = sel => document.querySelector(sel);
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const two = n => String(Math.max(0, Math.floor(n))).padStart(2, '0');
-const date = (iso, year = true) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', ...(year ? { year: 'numeric' } : {}), timeZone: 'UTC' });
+const date = (iso, year = true) => new Date(`${iso}T00:00:00Z`).toLocaleDateString(dateLocale, { day: '2-digit', month: 'short', ...(year ? { year: 'numeric' } : {}), timeZone: 'UTC' });
 
 // The game's day runs from 08:00 UTC to 08:00 UTC.
 const gameDay = now => new Date(now - RESET_HOUR * 3600000).toISOString().slice(0, 10);
@@ -80,7 +81,7 @@ function history(x) {
 function render() {
   const now = Date.now();
   const stale = data.date !== gameDay(now);
-  const updated = data.updated ? new Date(data.updated).toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) : '—';
+  const updated = data.updated ? new Date(data.updated).toLocaleString(dateLocale, { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) : '—';
   $('#escalation').innerHTML = `
     <section class="panel season-head">
       <p class="eyebrow">Escalation</p>
