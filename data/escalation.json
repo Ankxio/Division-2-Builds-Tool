@@ -1,0 +1,60 @@
+{
+ "date": "2026-10-09",
+ "week": [
+  "2026-10-06",
+  "2026-10-12"
+ ],
+ "missions": [
+  {
+   "mission": "Pathway Park",
+   "faction": "Cleaners",
+   "loot": "Walker, Harris & Co",
+   "appearances": 1,
+   "last_seen_days": null
+  },
+  {
+   "mission": "Camp White Oak",
+   "faction": "Black Tusk",
+   "loot": "Hana-U Corporation",
+   "appearances": 1,
+   "last_seen_days": null
+  },
+  {
+   "mission": "Grand Washington Hotel",
+   "faction": "Hyenas",
+   "loot": "Grupo Sombra S.A.",
+   "appearances": 1,
+   "last_seen_days": null
+  },
+  {
+   "mission": "Jefferson Trade Center",
+   "faction": "Hyenas",
+   "loot": "Petrov Defense Group",
+   "appearances": 1,
+   "last_seen_days": null
+  },
+  {
+   "mission": "Federal Emergency Bunker",
+   "faction": "Outcasts",
+   "loot": "Heartbreaker",
+   "appearances": 1,
+   "last_seen_days": null
+  }
+ ],
+ "caches": [
+  {
+   "type": "Prototype Gear Cache",
+   "item": "Chest Pieces",
+   "appearances": 1,
+   "last_seen_days": null
+  },
+  {
+   "type": "Prototype Weapon Cache",
+   "item": "MMRs",
+   "appearances": 1,
+   "last_seen_days": null
+  }
+ ],
+ "tracked_since": "2026-10-09",
+ "updated": "2026-10-09T17:38:17Z"
+}

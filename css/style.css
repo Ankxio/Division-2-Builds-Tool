@@ -537,3 +537,23 @@ button.row:hover .row-art { opacity: 1; transform: scale(1.08); }
 /* Calendar: the live clock under the season name */
 .live-line { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 12px; }
 .live-line .chip b { font-variant-numeric: tabular-nums; }
+
+/* Escalation rotation */
+.info-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-top: 10px; border: 1px solid var(--line); }
+.info-bar > div { display: grid; gap: 4px; padding: 12px 16px; border-right: 1px solid var(--line); }
+.info-bar b { font: 700 19px var(--display); font-variant-numeric: tabular-nums; }
+.info-bar .reset b { color: var(--accent); }
+.rotation, .caches { display: grid; gap: 8px; }
+.caches { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.rotation-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto; gap: 16px; align-items: center; padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--line-2); transition: border-color 0.15s; }
+.caches .rotation-row { grid-template-columns: minmax(0, 1fr) auto; }
+.rotation-row:hover { border-left-color: var(--accent); }
+.rotation-row h3 { font-size: 20px; font-weight: 700; letter-spacing: 0.02em; text-transform: none; margin-top: 2px; overflow-wrap: anywhere; }
+.rotation-row .loot { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.rotation-row .loot .art { width: 44px; height: 44px; flex: none; color: var(--accent); }
+.rotation-row .loot .art.gun { width: 72px; height: 28px; }
+.seen { display: grid; grid-template-columns: repeat(2, minmax(96px, auto)); gap: 18px; padding-left: 16px; border-left: 1px solid var(--line); }
+.seen div { display: grid; gap: 2px; }
+.seen b { font: 700 17px var(--display); white-space: nowrap; }
+.seen .when-seen { color: var(--accent); }
+@media (max-width: 760px) { .rotation-row, .caches .rotation-row { grid-template-columns: minmax(0, 1fr); } .seen { padding: 10px 0 0; border-left: 0; border-top: 1px solid var(--line); } }
