@@ -66,7 +66,7 @@ function card(e, where, now) {
   } else if (where === 'archive') side = `<p class="state">${e.permanent ? 'Unlocked' : 'Ended'}</p>`;
   else side = `<p class="state">Unconfirmed</p><p class="until">${e.from === null ? 'Dates TBA' : 'End date unclear'}</p>`;
   return `<article class="event ${where}">
-    <div><p class="eyebrow">${esc(e.category)}${e.auto ? ' <span class="tag">Added automatically</span>' : ''}</p><h3>${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a>` : esc(e.name)}</h3><p class="note">${esc(e.detail)}</p>${dates}
+    <div><p class="eyebrow">${esc(e.category)}</p><h3>${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a>` : esc(e.name)}</h3><p class="note">${esc(e.detail)}</p>${dates}
       ${e.note ? `<p class="note warn">${esc(e.note)}</p>` : ''}</div>
     <div class="event-side">${side}</div>${bar}
   </article>`;
@@ -123,8 +123,7 @@ function render() {
     ${past}
     ${news.length ? `<h2 class="section">Latest from Ubisoft <em>${two(Math.min(8, news.length))}</em></h2>
       <div class="news">${news.slice(0, 8).map(n => `<a class="news-item" href="${esc(n.url)}" target="_blank" rel="noopener">
-        <span class="eyebrow">${esc(day(moment(n.date) ?? now))}</span><b>${esc(n.title)}</b><span class="note">${esc(n.summary)}…</span></a>`).join('')}</div>
-      <p class="note">Announcements are read from Steam's official news feed every hour.</p>` : ''}
+        <span class="eyebrow">${esc(day(moment(n.date) ?? now))}</span><b>${esc(n.title)}</b><span class="note">${esc(n.summary)}…</span></a>`).join('')}</div>` : ''}
     <p class="note">In-game reset is ${two(RESET_HOUR)}:00 UTC; countdowns use that daily boundary. Dates can change: entries with missing or conflicting dates are marked.</p>`;
   $('#today').textContent = day(now);
   shown = layout(now);
