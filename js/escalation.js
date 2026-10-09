@@ -3,6 +3,8 @@
 // page reads it again every few minutes and the reset clock ticks every second.
 
 import { gearArt, slotArt, weaponArt } from './art.js';
+import { loadCustom, loadSnapshot, finish } from './data.js';
+import { readSheet } from './sheet.js';
 
 const RESET_HOUR = 8; // daily reset, UTC
 const REFRESH = 5 * 60000;
@@ -10,7 +12,10 @@ const SLOTS = [[/mask/i, 'mask'], [/backpack/i, 'backpack'], [/chest/i, 'chest']
 const WEAPONS = [[/assault|\bars?\b/i, 'ar'], [/smg|submachine/i, 'smg'], [/lmg|light machine/i, 'lmg'], [/mmr|marksman/i, 'mmr'],
   [/shotgun/i, 'shotgun'], [/pistol|sidearm/i, 'pistol'], [/rifle/i, 'rifle']];
 
-let data = null, last = '';
+const CORE = { offense: 'Weapon damage', defense: 'Armor', utility: 'Skill tier' };
+const SLOT_NAMES = { mask: 'Mask', backpack: 'Backpack', chest: 'Chest', gloves: 'Gloves', holster: 'Holster', kneepads: 'Kneepads' };
+
+let data = null, last = '', db = null;
 
 const $ = sel => document.querySelector(sel);
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -30,6 +35,40 @@ function cacheArt(cache) {
   if (slot) return slotArt(slot[1]);
   const type = WEAPONS.find(([re]) => re.test(cache.item));
   return type ? weaponArt({ name: '', type: type[1] }) : '';
+}
+
+// The brand or gear set a target loot name stands for, from the same game data the build
+// planner uses. Names are compared without punctuation: "Walker, Harris & Co" = "Walker, Harris & Co.".
+function lootInfo(name) {
+  if (!db) return null;
+  const key = v => String(v).toLowerCase().replace(/[^a-z0-9]/g, '');
+  const wanted = key(name);
+  const same = x => key(x.name) === wanted || (wanted.length > 5 && (key(x.name).startsWith(wanted) || wanted.startsWith(key(x.name))));
+  return db.gearsets.find(same) || db.brands.find(same) || null;
+}
+
+const lines = text => esc(text).replace(/\n/g, '<br>');
+const talent = (label, t) => (t ? `<div class="detail-talent"><span class="eyebrow">${label}</span><h4>${esc(t.name || '')}</h4><p class="note">${lines(t.text)}</p></div>` : '');
+
+function details(name) {
+  const item = lootInfo(name);
+  if (!item) return `<p class="note">No details are on record for ${esc(name)}.</p>`;
+  const named = db.gear.filter(g => g.quality === 'named' && g.brand === item.name);
+  return `<p class="detail-kind"><span class="tag strong">${item.kind === 'gearset' ? 'Gear set' : 'Brand set'}</span><span class="tag">Core: ${CORE[item.core] || item.core}</span></p>
+    <dl class="rows">${item.bonuses.filter(b => b.text).map(b => `<div><dt>${b.pieces} ${b.pieces === 1 ? 'piece' : 'pieces'}</dt><dd>${esc(b.text)}</dd></div>`).join('')}</dl>
+    ${item.kind === 'gearset' ? talent('4 pieces', item.four) + talent('Chest talent', item.chest) + talent('Backpack talent', item.backpack) : ''}
+    ${named.length ? `<h3 class="detail-title">Named items</h3>${named.map(g => `<div class="detail-talent"><span class="eyebrow">${SLOT_NAMES[g.slot] || g.slot}</span><h4>${esc(g.name)}</h4>
+      <p class="note">${g.talent ? `<b>${esc(g.talent.name)}</b><br>${lines(g.talent.text)}` : lines(g.perk || '')}</p></div>`).join('')}` : ''}`;
+}
+
+function open(name) {
+  const dialog = $('#loot');
+  dialog.innerHTML = `<div class="sheet-inner">
+    <header class="sheet-head"><div class="loot">${gearArt({ name, slot: 'chest', quality: 'highend' })}<div><p class="eyebrow">Target loot</p><h2>${esc(name)}</h2></div></div>
+      <button class="btn icon" data-close aria-label="Close">✕</button></header>
+    <div class="sheet-body">${details(name)}</div>
+  </div>`;
+  if (!dialog.open) dialog.showModal();
 }
 
 function history(x) {
@@ -58,7 +97,7 @@ function render() {
     <h2 class="section">Escalation missions <em>${two(data.missions.length)}</em></h2>
     <div class="rotation">${data.missions.map(m => `<article class="rotation-row">
       <div><span class="eyebrow">${esc(m.faction || 'Mission')}</span><h3>${esc(m.mission)}</h3></div>
-      <div class="loot">${gearArt({ name: m.loot, slot: 'chest', quality: 'highend' })}<div><span class="eyebrow">Target loot</span><h3>${esc(m.loot)}</h3></div></div>
+      <button class="loot" data-loot="${esc(m.loot)}" title="Show what ${esc(m.loot)} gives">${gearArt({ name: m.loot, slot: 'chest', quality: 'highend' })}<span><span class="eyebrow">Target loot</span><h3>${esc(m.loot)}</h3></span></button>
       ${history(m)}
     </article>`).join('')}</div>
     ${data.caches.length ? `<h2 class="section">Escalation Requisition vendor <em>Daily caches</em></h2>
@@ -66,7 +105,7 @@ function render() {
       <div class="loot">${cacheArt(c)}<div><span class="eyebrow">${esc(c.type)}</span><h3>${esc(c.item)}</h3></div></div>
       ${history(c)}
     </article>`).join('')}</div>` : ''}
-    <p class="note">Missions change every Tuesday and target loot every day at ${two(RESET_HOUR)}:00 UTC. Appearances are counted since ${date(data.tracked_since)}. Confirm in game before spending tokens.</p>`;
+    <p class="note">Missions change every Tuesday and target loot every day at ${two(RESET_HOUR)}:00 UTC. Appearances are counted since ${date(data.tracked_since)}. Select a target loot to see its bonuses. Confirm in game before spending tokens.</p>`;
   tick();
 }
 
@@ -87,6 +126,16 @@ async function load() {
   data = JSON.parse(text);
   render();
 }
+
+document.addEventListener('click', e => {
+  const loot = e.target.closest('[data-loot]');
+  if (loot) open(loot.dataset.loot);
+  // Close on the button, or on a click outside the box (the dialog element itself is the backdrop).
+  if (e.target.closest('[data-close]') || e.target.id === 'loot') $('#loot').close();
+});
+
+// The game data only feeds the pop-up, so the page does not wait for it.
+Promise.all([loadCustom(), loadSnapshot()]).then(([custom, snapshot]) => { db = finish(readSheet(snapshot), custom); }).catch(console.error);
 
 load().then(() => {
   setInterval(tick, 1000);

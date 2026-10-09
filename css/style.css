@@ -557,3 +557,17 @@ button.row:hover .row-art { opacity: 1; transform: scale(1.08); }
 .seen b { font: 700 17px var(--display); white-space: nowrap; }
 .seen .when-seen { color: var(--accent); }
 @media (max-width: 760px) { .rotation-row, .caches .rotation-row { grid-template-columns: minmax(0, 1fr); } .seen { padding: 10px 0 0; border-left: 0; border-top: 1px solid var(--line); } }
+button.loot { font: inherit; color: inherit; text-align: left; background: none; border: 1px solid transparent; padding: 6px 8px; margin: -6px -8px; cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+button.loot:hover, button.loot:focus-visible { border-color: var(--accent); background: rgba(255, 109, 16, 0.08); outline: none; }
+button.loot h3 { text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 4px; }
+.sheet-head .loot { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.sheet-head .loot .art { width: 44px; height: 44px; flex: none; color: var(--accent); }
+.rows { display: grid; margin: 0; }
+.rows div { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.rows dt { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.rows dd { margin: 0; font-weight: 600; text-align: right; overflow-wrap: anywhere; }
+.detail-kind { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.detail-title { margin: 16px 0 2px; font-size: 15px; color: var(--muted); }
+.detail-talent { display: grid; gap: 3px; margin-top: 10px; padding: 10px 12px; background: var(--bg-2); border-left: 3px solid var(--accent); }
+.detail-talent h4 { font: 700 17px var(--display); letter-spacing: 0.02em; }
+.detail-talent .note { font-size: 13px; line-height: 1.5; }
