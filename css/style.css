@@ -117,6 +117,56 @@ em { font-style: normal; color: var(--muted); }
 .chip.checking i { background: var(--he); animation: pulse 0.6s ease-in-out infinite alternate; }
 .chip.offline i { background: var(--he); }
 
+/* ---- tool switcher ---- */
+.tools { display: flex; gap: 4px; padding: 3px; border: 1px solid var(--line); background: var(--panel); }
+.tools a {
+  font: 600 14px var(--display); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  color: var(--muted); padding: 6px 14px; transition: color 0.15s, background-color 0.15s;
+}
+.tools a:hover { color: var(--text); background: rgba(255, 255, 255, 0.06); }
+.tools a[aria-current="page"] { color: var(--accent-ink); background: var(--accent); }
+
+/* ---- seasonal calendar ---- */
+.page { display: grid; gap: 12px; max-width: 980px; margin: 0 auto; padding: 20px 24px 8px; }
+.season-head { gap: 6px; }
+.season-pick { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 10px; }
+.season-pick .field { margin: 0; min-width: 240px; }
+.season-name { font-size: clamp(30px, 6vw, 44px); line-height: 1; color: var(--accent); text-shadow: 0 0 26px rgba(255, 109, 16, 0.35); }
+.panel > h2.season-name::before { display: none; }
+.next { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; padding: 12px 14px; background: var(--bg-2); border-left: 3px solid var(--accent); }
+.next h3 { font-size: 22px; }
+.section em { font: 700 14px var(--display); color: var(--accent); }
+.timeline { display: grid; gap: 10px; padding-left: 18px; border-left: 1px solid var(--line-2); }
+.event {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 18px; align-items: start;
+  padding: 14px 16px; background: var(--panel); border: 1px solid var(--line);
+}
+.event::before { content: ""; position: absolute; left: -23px; top: 22px; width: 9px; height: 9px; border-radius: 50%; background: var(--muted); }
+.event.active { border-left: 3px solid var(--accent); background: linear-gradient(90deg, rgba(255, 109, 16, 0.07), transparent 40%), var(--panel); }
+.event.active::before { background: var(--accent); box-shadow: 0 0 0 4px rgba(255, 109, 16, 0.2); animation: pulse 1.2s ease-in-out infinite alternate; }
+.event.ended, .event.archive { opacity: 0.72; }
+.event h3 { font-size: 21px; font-weight: 700; letter-spacing: 0.02em; text-transform: none; margin: 2px 0; }
+.when { margin-top: 8px; font: 600 13px var(--display); letter-spacing: 0.08em; text-transform: uppercase; }
+.when span, .when em { color: var(--muted); font-weight: 500; }
+.when em { margin-left: 8px; }
+.event-side { text-align: right; display: grid; gap: 2px; justify-items: end; }
+.state { font: 600 12px var(--display); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.state::before { content: "● "; }
+.state.live { color: var(--accent); }
+.until { font: 600 11px var(--display); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.count-down { font-family: var(--display); color: var(--accent); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.count-down b { font-size: 30px; font-weight: 700; line-height: 1; }
+.count-down i { font-style: normal; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-right: 4px; }
+.progress { grid-column: 1; align-self: center; height: 3px; background: rgba(255, 255, 255, 0.1); }
+.progress i { display: block; height: 100%; background: var(--accent); box-shadow: 0 0 10px rgba(255, 109, 16, 0.7); }
+.pct { font: 600 12px var(--display); color: var(--muted); text-align: right; }
+@media (max-width: 620px) {
+  .page { padding: 14px 14px 8px; }
+  .event { grid-template-columns: minmax(0, 1fr); }
+  .event-side { text-align: left; justify-items: start; }
+  .progress { grid-column: 1; }
+}
+
 /* ---- controls ---- */
 .btn, .seg-btn, .pill {
   position: relative; font-size: 14px; font-weight: 600; color: var(--text); cursor: pointer; line-height: 1.2;
