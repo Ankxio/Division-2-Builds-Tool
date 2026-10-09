@@ -133,6 +133,12 @@ em { font-style: normal; color: var(--muted); }
 .season-pick .field { margin: 0; min-width: 240px; }
 .season-name { font-size: clamp(30px, 6vw, 44px); line-height: 1; color: var(--accent); text-shadow: 0 0 26px rgba(255, 109, 16, 0.35); }
 .panel > h2.season-name::before { display: none; }
+.event h3 a { color: inherit; text-decoration-color: var(--line-2); text-underline-offset: 4px; }
+.event h3 a:hover { color: var(--accent); }
+.news { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.news-item { display: grid; gap: 4px; align-content: start; padding: 12px 14px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--line-2); color: var(--text); text-decoration: none; transition: border-color 0.15s, transform 0.2s var(--ease); }
+.news-item:hover { border-left-color: var(--accent); transform: translateY(-2px); }
+.news-item b { font: 700 17px/1.2 var(--display); letter-spacing: 0.02em; }
 .next { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; padding: 12px 14px; background: var(--bg-2); border-left: 3px solid var(--accent); }
 .next h3 { font-size: 22px; }
 .section em { font: 700 14px var(--display); color: var(--accent); }

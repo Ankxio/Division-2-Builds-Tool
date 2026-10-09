@@ -7,7 +7,7 @@ const RESET_HOUR = 8; // the game's daily reset, in UTC
 const RECENT_DAYS = 14;
 const DAY = 86400000;
 
-let seasons = [], events = [], chosen = '', archiveOpen = false;
+let seasons = [], events = [], news = [], chosen = '', archiveOpen = false;
 
 const $ = sel => document.querySelector(sel);
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -50,7 +50,7 @@ function card(e, where, now) {
   } else if (where === 'archive') side = `<p class="state">${e.permanent ? 'Unlocked' : 'Ended'}</p>`;
   else side = `<p class="state">Unconfirmed</p><p class="until">${e.from === null ? 'Dates TBA' : 'End date unclear'}</p>`;
   return `<article class="event ${where}">
-    <div><p class="eyebrow">${esc(e.category)}</p><h3>${esc(e.name)}</h3><p class="note">${esc(e.detail)}</p>${dates}
+    <div><p class="eyebrow">${esc(e.category)}${e.auto ? ' <span class="tag">Added automatically</span>' : ''}</p><h3>${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a>` : esc(e.name)}</h3><p class="note">${esc(e.detail)}</p>${dates}
       ${e.note ? `<p class="note warn">${esc(e.note)}</p>` : ''}</div>
     <div class="event-side">${side}</div>${bar}
   </article>`;
@@ -91,15 +91,26 @@ function render() {
     ${block('Dates partially documented', groups.unknown, 'unknown', now)}
     ${groups.archive.length ? `<details class="panel"${archiveOpen ? ' open' : ''}><summary><h2>Archive and unlocks</h2><span class="tag">${groups.archive.length} entries</span></summary>
       <div class="timeline">${groups.archive.map(e => card(e, 'archive', now)).join('')}</div></details>` : ''}
+    ${news.length ? `<h2 class="section">Latest from Ubisoft <em>${two(Math.min(8, news.length))}</em></h2>
+      <div class="news">${news.slice(0, 8).map(n => `<a class="news-item" href="${esc(n.url)}" target="_blank" rel="noopener">
+        <span class="eyebrow">${esc(day(moment(n.date) ?? now))}</span><b>${esc(n.title)}</b><span class="note">${esc(n.summary)}…</span></a>`).join('')}</div>
+      <p class="note">Announcements are read from Steam's official news feed every hour.</p>` : ''}
     <p class="note">In-game reset is ${two(RESET_HOUR)}:00 UTC; countdowns use that daily boundary. Dates can change: entries with missing or conflicting dates are marked.</p>`;
   $('#today').textContent = day(now);
 }
 
 async function start() {
   const get = async name => parseTable(await (await fetch(`data/${name}.csv`, { cache: 'no-store' })).text());
-  const [s, e] = await Promise.all([get('seasons'), get('events')]);
+  // auto_events.csv and news.json are written every hour by the GitHub job; the page still
+  // works without them.
+  const [s, e, auto] = await Promise.all([get('seasons'), get('events'), get('auto_events').catch(() => [])]);
+  news = await fetch('data/news.json', { cache: 'no-store' }).then(r => r.json()).then(j => j.items || []).catch(() => []);
   seasons = s.map(r => ({ ...r, from: moment(r.start), to: moment(r.end) }));
-  events = e.map(r => ({ ...r, from: moment(r.start), to: moment(r.end), permanent: /^perm/i.test(r.end) }));
+  // A row written by hand wins over an automatic one about the same thing.
+  const key = n => String(n).toLowerCase().replace(/[^a-z0-9]/g, '');
+  const mine = new Set(e.map(r => key(r.name)));
+  const extra = auto.filter(r => ![...mine].some(k => k.includes(key(r.name)) || key(r.name).includes(k))).map(r => ({ ...r, auto: true }));
+  events = [...e, ...extra].map(r => ({ ...r, from: moment(r.start), to: moment(r.end), permanent: /^perm/i.test(r.end) }));
   // Open on the season running now: the latest one that has started.
   const now = Date.now();
   const running = seasons.filter(x => x.from !== null && x.from <= now).sort((a, b) => b.from - a.from)[0];
