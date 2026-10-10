@@ -16,15 +16,15 @@
  "2026-10-10": {
   "week": "2026-10-06",
   "missions": {
-   "Pathway Park": "Walker, Harris & Co",
-   "Camp White Oak": "Hana-U Corporation",
-   "Grand Washington Hotel": "Grupo Sombra S.A.",
-   "Jefferson Trade Center": "Petrov Defense Group",
-   "Federal Emergency Bunker": "Heartbreaker"
+   "Pathway Park": "China Light Industries",
+   "Camp White Oak": "Refactor",
+   "Grand Washington Hotel": "Petrov Defense Group",
+   "Jefferson Trade Center": "Tip of the Spear",
+   "Federal Emergency Bunker": "Edelweiss GPz"
   },
   "caches": {
-   "Prototype Gear Cache": "Chest Pieces",
-   "Prototype Weapon Cache": "MMRs"
+   "Prototype Gear Cache": "Gloves",
+   "Prototype Weapon Cache": "Assault Rifles"
   }
  }
 }

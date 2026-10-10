@@ -8,53 +8,53 @@
   {
    "mission": "Pathway Park",
    "faction": "Cleaners",
-   "loot": "Walker, Harris & Co",
-   "appearances": 2,
-   "last_seen_days": 1
+   "loot": "China Light Industries",
+   "appearances": 1,
+   "last_seen_days": null
   },
   {
    "mission": "Camp White Oak",
    "faction": "Black Tusk",
-   "loot": "Hana-U Corporation",
-   "appearances": 2,
-   "last_seen_days": 1
+   "loot": "Refactor",
+   "appearances": 1,
+   "last_seen_days": null
   },
   {
    "mission": "Grand Washington Hotel",
-   "faction": "Hyenas",
-   "loot": "Grupo Sombra S.A.",
-   "appearances": 2,
-   "last_seen_days": 1
-  },
-  {
-   "mission": "Jefferson Trade Center",
    "faction": "Hyenas",
    "loot": "Petrov Defense Group",
    "appearances": 2,
    "last_seen_days": 1
   },
   {
+   "mission": "Jefferson Trade Center",
+   "faction": "Hyenas",
+   "loot": "Tip of the Spear",
+   "appearances": 1,
+   "last_seen_days": null
+  },
+  {
    "mission": "Federal Emergency Bunker",
    "faction": "Outcasts",
-   "loot": "Heartbreaker",
-   "appearances": 2,
-   "last_seen_days": 1
+   "loot": "Edelweiss GPz",
+   "appearances": 1,
+   "last_seen_days": null
   }
  ],
  "caches": [
   {
    "type": "Prototype Gear Cache",
-   "item": "Chest Pieces",
-   "appearances": 2,
-   "last_seen_days": 1
+   "item": "Gloves",
+   "appearances": 1,
+   "last_seen_days": null
   },
   {
    "type": "Prototype Weapon Cache",
-   "item": "MMRs",
-   "appearances": 2,
-   "last_seen_days": 1
+   "item": "Assault Rifles",
+   "appearances": 1,
+   "last_seen_days": null
   }
  ],
  "tracked_since": "2026-10-09",
- "updated": "2026-10-10T01:46:59Z"
+ "updated": "2026-10-10T08:34:40Z"
 }
